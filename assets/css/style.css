@@ -1,0 +1,34 @@
+body {
+    font-family: ralewayregular;
+}
+
+nav.menu {
+    background-color: #7ed2ec;
+
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-header  > a {
+    color:#ffffff;
+}
+
+
+.navbar-default .navbar-nav > li > a:hover{
+
+}
+
+.navbar-default .navbar-header  > a:hover {
+
+}
+
+nav .navbar-brand {
+    font-family: ralewaybold;
+    padding-top: 9px;
+}
+
+nav .navbar-brand img {
+    margin-right: 0.5em;
+    margin-top: 0;
+}
+
+
