@@ -5,6 +5,7 @@
     <title>GoMobility + PageTitle</title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css"/>
 
     <script src="<?= base_url(); ?>assets/js/jquery-2.1.1.min.js"></script>
     <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
