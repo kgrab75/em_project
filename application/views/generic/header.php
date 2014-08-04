@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>GoMobility + PageTitle</title>
+    <title>GoMobility | <?php echo $title ?></title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.css"/>
 

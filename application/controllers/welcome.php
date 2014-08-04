@@ -25,6 +25,9 @@ class Welcome extends CI_Controller {
     public function view($page = 'accueil'){
 
         $data['title'] = ucfirst($page);
+        $data['sidebar_content']['info']='generic/info';
+        $data['sidebar_content']['actu']='generic/actu';
+        $data['sidebar_content']['community']='generic/community';
 
         $this->load->view('generic/header', $data);
         $this->load->view('pages/'.$page, $data);
