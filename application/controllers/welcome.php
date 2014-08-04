@@ -21,6 +21,17 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+    public function view($page = 'accueil'){
+
+        $data['title'] = ucfirst($page);
+
+        $this->load->view('generic/header', $data);
+        $this->load->view('pages/'.$page, $data);
+        $this->load->view('generic/sidebar', $data);
+        $this->load->view('generic/footer', $data);
+
+    }
 }
 
 /* End of file welcome.php */
