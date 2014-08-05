@@ -21,9 +21,9 @@ $( document ).ready(function() {
     }
 
     function calcRoute() {
-        // Champ qui permet de rentrer le lieu de départ
+        // Champ qui permet de rentrer le lieu de dÃ©part
         var start = "30 avenue du docteur calmette 92140 clamart";
-        // Champ qui permet d'entrer le lieu d'arrivé
+        // Champ qui permet d'entrer le lieu d'arrivÃ©
         var end = "48.837279, 2.242078";
         var request = {
             origin: start,
