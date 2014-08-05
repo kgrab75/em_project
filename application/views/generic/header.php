@@ -51,9 +51,9 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="<?= base_url(); ?>index.php/welcome/view/projet">Le projet</a></li>
-                            <li><a href="<?= base_url(); ?>index.php/welcome/view/experiences">Vos expériences</a></li>
-                            <li><a href="<?= base_url(); ?>index.php/welcome/view/participation">Je participe</a></li>
+                            <li><a href="<?= base_url(); ?>projet">Le projet</a></li>
+                            <li><a href="<?= base_url(); ?>experiences">Vos expériences</a></li>
+                            <li><a href="<?= base_url(); ?>participation">Je participe</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -62,11 +62,3 @@
         </div>
 
         <!-- FIN MENU -->
-
-
-
-
-
-
-
-
