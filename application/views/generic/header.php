@@ -2,11 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>GoMobility + PageTitle</title>
+    <title>GoMobility | <?php echo $title ?></title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.css"/>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/fonts/fonts.css"/>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css"/>
+
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/assets/images/favicon.ico" />
 
     <script src="<?= base_url(); ?>assets/js/jquery-2.1.1.min.js"></script>
     <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
