@@ -29,7 +29,12 @@ class Welcome extends CI_Controller {
         $data['sidebar_content']['actu']='generic/actu';
         $data['sidebar_content']['community']='generic/community';
 
-        $this->load->model($page);
+        if($page == "accueil") {
+            $this->load->model('M_'.$page);
+
+            $data['lastActor'] = $this->M_accueil->getLastActor();
+        }
+
 
         $this->load->view('generic/header', $data);
         $this->load->view('pages/'.$page, $data);

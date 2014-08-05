@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GoMobility | <?php echo $title ?></title>
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/bootstrap.css"/>
@@ -34,15 +35,15 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="<?= base_url(); ?>/assets/images/headLogo.png" alt=""/>Go Mobility</a>
+                        <a class="navbar-brand" href="<?= base_url(); ?>"><img src="<?= base_url(); ?>/assets/images/headLogo.png" alt=""/>Go Mobility</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Le projet</a></li>
-                            <li><a href="#">Vos expériences</a></li>
-                            <li><a href="#">Je participe</a></li>
+                            <li><a href="<?= base_url(); ?>index.php/welcome/view/projet">Le projet</a></li>
+                            <li><a href="<?= base_url(); ?>index.php/welcome/view/experiences">Vos expériences</a></li>
+                            <li><a href="<?= base_url(); ?>index.php/welcome/view/participation">Je participe</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->

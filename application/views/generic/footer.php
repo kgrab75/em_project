@@ -1,10 +1,17 @@
 
         <!-- FOOTER -->
-        <div class="col-sm-12">
+        <div class="col-sm-12 footer">
 
-            <p class="text-left"><a href="#">Mentions légales</a> / <a href="#">Contact</a></p>
+            <div class="col-sm-6">
+                <p class="text-left"><a class="padLink" href="<?= base_url(); ?>ml">Mentions légales</a> <a class="padLink" href="<?= base_url(); ?>contact">Contact</a></p>
+            </div>
 
-            <p class="text-right">Partenaires : Pays, Conseil Général</p>
+            <div class="col-sm-6">
+                <p class="text-right">
+                    Partenaires : <a href="http://www.pays-ardeche-meridionale.net/" target="_blank">Le Pays de l'Ardèche méridional</a>,
+                    <a href="https://www.ardeche.fr/" target="_blank">Le conseil général de l'Ardèche</a>
+                </p>
+            </div>
 
         </div>
 

@@ -1,16 +1,13 @@
 body {
     font-family: ralewayregular;
-    background-color: #f2e5d2;
     color:#646462;
 }
-
-
 
 .clear {
     clear: both;
 }
 
-h3 {
+h2 {
     color: #7ed2ec;
 }
 
@@ -18,7 +15,7 @@ h3 {
     background-color: #ffffff;
 }
 
-
+/* ***  MENU *** */
 
 div.col-sm-12.menu {
     padding-left: 0;
@@ -36,14 +33,6 @@ div.col-sm-12 > nav.menu {
 }
 
 
-.navbar-default .navbar-nav > li > a:hover{
-
-}
-
-.navbar-default .navbar-header  > a:hover {
-
-}
-
 nav .navbar-brand {
     font-family: ralewaybold;
     padding-top: 9px;
@@ -54,4 +43,22 @@ nav .navbar-brand img {
     margin-top: 0;
 }
 
+/* ***  FOOTER *** */
 
+.footer {
+    background-color: #7ed2ec;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.footer a.padLink {
+    margin-right: 2em;
+}
+
+.footer a, .footer p {
+    line-height: 3em;
+    color: #ffffff;
+}
+
+.footer p {
+    margin-bottom: 0px;
+}
