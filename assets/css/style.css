@@ -1,10 +1,30 @@
 body {
     font-family: ralewayregular;
+    color:#646462;
 }
 
-nav.menu {
-    background-color: #7ed2ec;
+.clear {
+    clear: both;
+}
 
+h2 {
+    color: #7ed2ec;
+}
+
+.container {
+    background-color: #ffffff;
+}
+
+/* ***  MENU *** */
+
+div.col-sm-12.menu {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+div.col-sm-12 > nav.menu {
+    background-color: #7ed2ec;
+    margin-bottom: 0px;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -12,14 +32,6 @@ nav.menu {
     color:#ffffff;
 }
 
-
-.navbar-default .navbar-nav > li > a:hover{
-
-}
-
-.navbar-default .navbar-header  > a:hover {
-
-}
 
 nav .navbar-brand {
     font-family: ralewaybold;
@@ -31,4 +43,22 @@ nav .navbar-brand img {
     margin-top: 0;
 }
 
+/* ***  FOOTER *** */
 
+.footer {
+    background-color: #7ed2ec;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+.footer a.padLink {
+    margin-right: 2em;
+}
+
+.footer a, .footer p {
+    line-height: 3em;
+    color: #ffffff;
+}
+
+.footer p {
+    margin-bottom: 0px;
+}
