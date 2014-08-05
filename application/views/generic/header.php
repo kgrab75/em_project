@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/fonts/fonts.css"/>
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css"/>
 
+    <link rel="icon" type="image/png" href="<?= base_url(); ?>/assets/images/favicon.ico" />
+
     <script src="<?= base_url(); ?>assets/js/jquery-2.1.1.min.js"></script>
     <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?v=3.exp"></script>
