@@ -31,7 +31,10 @@ class Welcome extends CI_Controller {
         $this->load->view('generic/sidebar', $data);
         $this->load->view('generic/footer', $data);
 
+
     }
+
+
 }
 
 /* End of file welcome.php */

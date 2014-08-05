@@ -20,7 +20,7 @@
     <div class="container">
 
         <!-- MENU -->
-        <div class="col-sm-12">
+        <div class="col-sm-12 menu">
 
             <nav class="navbar navbar-default menu" role="navigation">
                 <div class="container-fluid">

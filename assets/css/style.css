@@ -1,10 +1,33 @@
 body {
     font-family: ralewayregular;
+    background-color: #f2e5d2;
+    color:#646462;
 }
 
-nav.menu {
-    background-color: #7ed2ec;
 
+
+.clear {
+    clear: both;
+}
+
+h3 {
+    color: #7ed2ec;
+}
+
+.container {
+    background-color: #ffffff;
+}
+
+
+
+div.col-sm-12.menu {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+div.col-sm-12 > nav.menu {
+    background-color: #7ed2ec;
+    margin-bottom: 0px;
 }
 
 .navbar-default .navbar-nav > li > a,
