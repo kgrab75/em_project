@@ -7,6 +7,11 @@ body {
     clear: both;
 }
 
+a{
+    font-size: 15px;
+    font-weight: bold;
+}
+
 h1 {
     margin: 0.75em 0;
 }
@@ -16,7 +21,7 @@ h2 {
 }
 
 .container {
-    background-color: #ffffff;
+    background-color: #E5F8FE;
 }
 
 .bg-secondary{
@@ -60,7 +65,6 @@ nav .navbar-brand img {
 .footer {
     background-color: #7ed2ec;
     margin-top: 2em;
-    margin-bottom: 1em;
 }
 .footer a.padLink {
     margin-right: 2em;

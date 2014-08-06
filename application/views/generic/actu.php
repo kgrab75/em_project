@@ -3,7 +3,7 @@
 
     <ul class="list-unstyled col-sm-12 bg-secondary">
         <li>
-            <a href="" class="text-info">
+            <a href="">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Morbi luctus imperdiet nulla, ac tempus nibh adipiscing at.
                 Praesent lobortis sit amet dolor quis interdum.
