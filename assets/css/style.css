@@ -10,6 +10,7 @@ body {
 a{
     font-size: 15px;
     font-weight: bold;
+    color: #35a0c4;
 }
 
 h1 {
@@ -20,8 +21,9 @@ h2 {
     color: #7ed2ec;
 }
 
-.container {
+body > .container {
     background-color: #E5F8FE;
+    padding-bottom: 2em;
 }
 
 .bg-secondary{
@@ -31,6 +33,11 @@ h2 {
 blockquote {
     border-left: 5px solid #7ed2ec;
 }
+
+button.btn-block {
+    margin: 1em 0;
+}
+
 
 /* ***  MENU *** */
 
@@ -54,12 +61,6 @@ header.menu {
     margin-bottom: 0;
 }
 
-.navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-header  > a {
-    color:#ffffff;
-}
-
-
 .navbar-brand {
     font-family: ralewaybold, Arial, sans-serif;
     padding-top: 9px;
@@ -74,7 +75,6 @@ header.menu {
 
 .footer {
     background-color: #7ed2ec;
-    margin-top: 2em;
 }
 .footer a.padLink {
     margin-right: 2em;
@@ -101,15 +101,54 @@ aside .no-margin-bottom{
     margin-bottom: 0;
 }
 
-button.btn-block {
-    margin: 1em 0;
+.sideContent ul.info > li > a{
+    line-height: 2.3em;
+    font-size: 1.2em;
 }
+
+.sideContent ul.info > li > a > i.fa {
+    color:#FFA13E;
+    font-size: 1.2em;
+}
+
+.info  .badge {
+    background-color:#FFA13E;
+    font-size: 1.3em;
+    border-radius: 1.2em;
+}
+
+
+.sideContent ul {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+
+/* ***  CARTES GOOGLE *** */
 
 #totalGES {
     font-size: 1.2em;
-
 }
 
-.map {
+#mapPreview {
+    padding: 0 15px;
+}
 
+.mapInfo h3{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.mapInfo h3 span.mini {
+    font-size: 0.8em;
+}
+
+.mapInfo h2{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }

@@ -1,6 +1,6 @@
-<section class="col-sm-12">
+<section class="col-sm-12 sideContent">
 
-    <h2 class="bg-primary panel-heading no-margin-bottom">Nous retrouvez</h2>
+    <h2 class="bg-primary panel-heading no-margin-bottom">Nous retrouver</h2>
 
     <!-- FACEBOOK -->
     <div class="fb-like-box col-sm-12 bg-secondary" data-href="https://www.facebook.com/GoMobilityArdeche" data-colorscheme="light" data-show-faces="false" data-header="true" data-stream="false" data-show-border="true"></div>

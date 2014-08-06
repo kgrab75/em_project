@@ -95,25 +95,30 @@
 
 
 
-    <div class="map col-sm-12">
-        <div class="col-sm-9" id="mapPreview" style="height:30em;"></div>
-
-
+        <div class="col-sm-9">
+            <div id="mapPreview" style="height:30em; width: 100%"></div>
+        </div>
 
         <div class="col-sm-3 text-center">
 
-            <h3 class="bg-primary">CO2 Economisé :</h3>
-            <h2 class="bg-secondary"><span id="totalGES"></span></h2>
+            <div class="mapInfo">
+                <h3 class="bg-primary">CO2 <span class="mini"><br/>économisé :</span></h3>
+                <h2 class="bg-secondary"><span id="totalGES"></span></h2>
+            </div>
 
-            <h3 class="bg-primary">Distance totale : </h3>
-            <h2 class="bg-secondary"><span id="totalKm"></span></h2>
+            <div class="mapInfo">
+                <h3 class="bg-primary">Distance : </h3>
+                <h2 class="bg-secondary"><span id="totalKm"></span></h2>
+            </div>
 
-            <h3 class="bg-primary">Durée : </h3>
-            <h2 class="bg-secondary"><span id="duration"></span></h2>
+            <div class="mapInfo">
+                <h3 class="bg-primary">Durée : </h3>
+                <h2 class="bg-secondary"><span id="duration"></span></h2>
+            </div>
 
         </div>
 
-    </div>
+
 
     <div class="clear"></div>
 
