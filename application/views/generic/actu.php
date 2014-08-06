@@ -1,7 +1,7 @@
 <section class="col-sm-12">
-    <h2 class="bg-primary panel-heading">Actualités</h2>
+    <h2 class="bg-primary panel-heading no-margin-bottom">Actualités</h2>
 
-    <ul class="list-unstyled">
+    <ul class="list-unstyled col-sm-12 bg-secondary">
         <li>
             <a href="" class="text-info">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
