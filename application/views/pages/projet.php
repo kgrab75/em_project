@@ -14,7 +14,7 @@
     </ol>
 
 
-    <p>Ex quo, id quod omnes expetunt, beate vivendi ratio inveniri et comparari potest. Vitiosum est enim in dividendo partem in genere numerare. Ubi ut eam caperet aut quando? Vadem te ad mortem tyranno dabis pro amico, ut Pythagoreus ille Siculo fecit tyranno? Nihil ad rem! Ne sit sane; Qui est in parvis malis. <b>Immo videri fortasse.</b> <a href='#' target='_blank'>Murenam te accusante defenderem.</a> Bonum negas esse divitias, praeposìtum esse dicis? Virtutis, magnitudinis animi, patientiae, fortitudinis fomentis dolor mitigari solet. Haec et tu ita posuisti, et verba vestra sunt. </p>
+    <p>Ex quo, id quod omnes expetunt, beate vivendi ratio inveniri et comparari potest. Vitiosum est enim in dividendo partem in genere numerare. Ubi ut eam caperet aut quando? Vadem te ad mortem tyranno dabis pro amico, ut Pythagoreus ille Siculo fecit tyranno? Nihil ad rem! Ne sit sane; Qui est in parvis malis. <b>Immo videri fortasse.</b> <a href='#' target='_blank'>Murenam te accusante defenderem.</a> Bonum negas esse divitias, praeposìtum esse dicis? </p>
 
     <blockquote cite='http://loripsum.net'>
         Si quidem, inquit, tollerem, sed relinquo.

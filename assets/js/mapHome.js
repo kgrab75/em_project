@@ -34,7 +34,7 @@ $( document ).ready(function() {
             travelMode: google.maps.TravelMode.DRIVING
 
         };
-        console.log(directionsDisplay);
+
         directionsService.route(request, function(response, status) {
 
             if (status == google.maps.DirectionsStatus.OK) {

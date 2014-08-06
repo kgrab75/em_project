@@ -35,6 +35,12 @@ class Welcome extends CI_Controller {
             $data['lastActor'] = $this->M_accueil->getLastActor();
         }
 
+        if($page == "participation") {
+
+            $this->load->model('M_'.$page);
+
+        }
+
 
         $this->load->view('generic/header', $data);
         $this->load->view('pages/'.$page, $data);
