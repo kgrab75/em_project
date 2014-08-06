@@ -41,6 +41,7 @@
 $route['default_controller'] = "welcome/view";
 $route['404_override'] = '';
 
+$route['admin'] = "admin";
 $route['([a-z]+)'] = "welcome/view/$1";
 
 
