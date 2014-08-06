@@ -30,14 +30,12 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="container">
+    <!-- MENU -->
+    <header class="menu navbar">
 
-        <!-- MENU -->
-        <div class="col-sm-12 menu">
+        <div class="container">
 
-            <nav class="navbar navbar-default menu" role="navigation">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
+                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
@@ -55,10 +53,15 @@
                             <li><a href="<?= base_url(); ?>experiences">Vos expériences</a></li>
                             <li><a href="<?= base_url(); ?>participation">Je participe</a></li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
+                    </div>
 
         </div>
+
+
+    </header>
+
+    <div class="container">
+
+
 
         <!-- FIN MENU -->

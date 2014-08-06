@@ -15,9 +15,6 @@ h2 {
     color: #7ed2ec;
 }
 
-.container {
-    background-color: #ffffff;
-}
 
 .bg-secondary{
     background-color: #fcf8df;
@@ -29,12 +26,22 @@ blockquote {
 
 /* ***  MENU *** */
 
-div.col-sm-12.menu {
-    padding-left: 0;
-    padding-right: 0;
+.navbar a {
+    color: #ffffff;
+}
+.nav > li > a:hover,
+.nav > li > a:active,
+.nav > li > a:focus {
+
+    background-color: transparent;
+    color: #35a0c4;
 }
 
-div.col-sm-12 > nav.menu {
+.menu > .container {
+    background-color: #7ed2ec;
+    margin-bottom: 0;
+}
+header.menu {
     background-color: #7ed2ec;
     margin-bottom: 0;
 }
@@ -45,12 +52,12 @@ div.col-sm-12 > nav.menu {
 }
 
 
-nav .navbar-brand {
+.navbar-brand {
     font-family: ralewaybold, Arial, sans-serif;
     padding-top: 9px;
 }
 
-nav .navbar-brand img {
+.navbar-brand img {
     margin-right: 0.5em;
     margin-top: 0;
 }
