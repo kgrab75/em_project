@@ -103,13 +103,13 @@
         <div class="col-sm-3 text-center">
 
             <h3 class="bg-primary">CO2 Economisé :</h3>
-            <h2><span id="totalGES"></span></h2>
+            <h2 class="bg-secondary"><span id="totalGES"></span></h2>
 
             <h3 class="bg-primary">Distance totale : </h3>
-            <h2><span id="totalKm"></span></h2>
+            <h2 class="bg-secondary"><span id="totalKm"></span></h2>
 
             <h3 class="bg-primary">Durée : </h3>
-            <h2><span id="duration"></span></h2>
+            <h2 class="bg-secondary"><span id="duration"></span></h2>
 
         </div>
 
