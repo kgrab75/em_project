@@ -1,10 +1,14 @@
 body {
-    font-family: ralewayregular;
+    font-family: ralewayregular, Arial, sans-serif;
     color:#646462;
 }
 
 .clear {
     clear: both;
+}
+
+h1 {
+    margin: 0.75em 0;
 }
 
 h2 {
@@ -19,6 +23,10 @@ h2 {
     background-color: #fcf8df;
 }
 
+blockquote {
+    border-left: 5px solid #7ed2ec;
+}
+
 /* ***  MENU *** */
 
 div.col-sm-12.menu {
@@ -28,7 +36,7 @@ div.col-sm-12.menu {
 
 div.col-sm-12 > nav.menu {
     background-color: #7ed2ec;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -38,7 +46,7 @@ div.col-sm-12 > nav.menu {
 
 
 nav .navbar-brand {
-    font-family: ralewaybold;
+    font-family: ralewaybold, Arial, sans-serif;
     padding-top: 9px;
 }
 
@@ -64,7 +72,7 @@ nav .navbar-brand img {
 }
 
 .footer p {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 
@@ -77,4 +85,17 @@ nav .navbar-brand img {
 
 aside .no-margin-bottom{
     margin-bottom: 0;
+}
+
+button.btn-block {
+    margin: 1em 0;
+}
+
+#totalGES {
+    font-size: 1.2em;
+
+}
+
+.map {
+
 }
