@@ -42,6 +42,14 @@ class Welcome extends CI_Controller {
         }
 
 
+        if($page == "experiences") {
+
+            $this->load->model('M_'.$page);
+
+            $data['experiences'] = $this->M_experiences->getXp();
+
+        }
+
         $this->load->view('generic/header', $data);
         $this->load->view('pages/'.$page, $data);
         $this->load->view('generic/sidebar', $data);

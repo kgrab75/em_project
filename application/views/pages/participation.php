@@ -93,34 +93,40 @@
         <button type="submit" class="btn btn-primary btn-block btn-lg ">Valider votre participation</button>
     </form>
 
+    <h2 class="bg-primary panel-heading no-margin-bottom">Votre feuille de route</h2>
 
-
+    <section class="content-area">
         <div class="col-sm-9">
             <div id="mapPreview" style="height:30em; width: 100%"></div>
         </div>
 
         <div class="col-sm-3 text-center">
-
-            <div class="mapInfo">
-                <h3 class="bg-primary">CO2 <span class="mini"><br/>économisé :</span></h3>
-                <h2 class="bg-secondary"><span id="totalGES"></span></h2>
+            <div class="mapInfo ges">
+                <h3 class="h3Bloc panel-heading no-margin-top"><span class="maxi">CO<sub>2</sub></span> <span class="mini"><br/>économisé :</span></h3>
+                <h2 class=""><span id="totalGES"></span></h2>
             </div>
 
-            <div class="mapInfo">
-                <h3 class="bg-primary">Distance : </h3>
-                <h2 class="bg-secondary"><span id="totalKm"></span></h2>
+            <div class="mapInfo distance">
+                <h3 class="h3Bloc panel-heading">Distance : </h3>
+                <h2 class=""><span id="totalKm"></span></h2>
             </div>
 
-            <div class="mapInfo">
-                <h3 class="bg-primary">Durée : </h3>
-                <h2 class="bg-secondary"><span id="duration"></span></h2>
+            <div class="mapInfo duration">
+                <h3 class="h3Bloc panel-heading">Durée : </h3>
+                <h2 class=""><span id="duration"></span></h2>
             </div>
 
         </div>
 
 
+        <div class="clear"></div>
+    </section>
 
-    <div class="clear"></div>
+
+
+
+
+
 
         <button type="button" class="btn btn-primary btn-lg btn-block">Confirmer votre participation</button>
 
