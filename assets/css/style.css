@@ -7,12 +7,20 @@ body {
     clear: both;
 }
 
+h1 {
+    margin: 0.75em 0;
+}
+
 h2 {
     color: #7ed2ec;
 }
 
 .container {
     background-color: #ffffff;
+}
+
+blockquote {
+    border-left: 5px solid #7ed2ec;
 }
 
 /* ***  MENU *** */
@@ -67,4 +75,17 @@ nav .navbar-brand img {
 .leftImg {
     float: right;
     margin: 1em 1em;
+}
+
+button.btn-block {
+    margin: 1em 0;
+}
+
+#totalGES {
+    font-size: 1.2em;
+
+}
+
+.map {
+
 }
