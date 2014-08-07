@@ -54,14 +54,14 @@
 
         <div class="form-group">
 
-            <label for="password" class="col-sm-2">Départ</label>
+            <label for="depart" class="col-sm-2">Départ</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="password" placeholder="Coordonnées départ">
+                <input type="text" class="form-control" id="depart" placeholder="Coordonnées départ">
             </div>
 
-            <label for="password" class="col-sm-2">Arrivée</label>
+            <label for="arrivee" class="col-sm-2">Arrivée</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="password" placeholder="Coordonnées arrivée">
+                <input type="text" class="form-control" id="arrivee" placeholder="Coordonnées arrivée">
             </div>
 
             <div class="col-sm-10 col-sm-offset-2">
