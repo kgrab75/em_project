@@ -19,6 +19,7 @@ a{
 
 h1 {
     margin: 0.75em 0;
+    font-size: 3.5em;
 }
 
 h2 {
@@ -92,12 +93,14 @@ button.btn-block {
 .nav > li > a:focus {
 
     background-color: transparent;
+
 }
 
 
 .navbar  a:hover,
 .navbar  a:active,
-.navbar  a:focus {
+.navbar  a:focus,
+.navbar  a.active {
     background-color: transparent;
     color: #35a0c4;
 }
@@ -180,9 +183,8 @@ aside ul.info  .badge {
 
 }
 
-aside ul.info  span.badge:hover,
-aside ul.info  span.badge:focus,
-aside ul.info  span.badge:active {
+
+aside ul.info > li > a:hover .badge, aside ul.info > li > a:active .badge, aside ul.info > li > a:focus .badge {
     background-color: #3bbbe2;
 }
 
@@ -272,4 +274,14 @@ a.showMore {
 ul.pagination {
     margin-bottom: 0;
     margin-top: 1em;
+}
+
+
+.bg-primary .col-sm-7 {
+    margin-top: 1em;
+}
+
+#transportSelect {
+    margin-top:1em;
+    margin-bottom:1em;
 }

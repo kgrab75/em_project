@@ -16,6 +16,7 @@
     <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="<?= base_url(); ?>assets/js/mapHome.js"></script>
+    <script src="<?= base_url(); ?>assets/js/script.js"></script>
 
 
 </head>
@@ -47,12 +48,23 @@
                         <a class="navbar-brand" href="<?= base_url(); ?>"><img src="<?= base_url(); ?>/assets/images/headLogo.png" alt=""/>Go Mobility</a>
                     </div>
 
+
+            <?
+            function checkActive($url, $val){
+
+                if(isset($url) && $url == $val){
+                    echo 'active';
+                }
+            }
+            $url = $this->uri->segment(1);
+            ?>
+
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="<?= base_url(); ?>projet">Le projet</a></li>
-                            <li><a href="<?= base_url(); ?>experiences">Vos expériences</a></li>
-                            <li><a href="<?= base_url(); ?>participation">Je participe</a></li>
+                            <li><a href="<?= base_url(); ?>projet" class="projet <? checkActive($url,"projet"); ?>">Le projet</a></li>
+                            <li><a href="<?= base_url(); ?>experiences/all/" class="experiences <? checkActive($url,"experiences"); ?>">Vos expériences</a></li>
+                            <li><a href="<?= base_url(); ?>participation" class="participation <? checkActive($url,"participation"); ?>">Je participe</a></li>
                         </ul>
                     </div>
 
