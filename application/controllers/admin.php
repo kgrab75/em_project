@@ -58,12 +58,20 @@ class Admin extends CI_Controller {
 
         if($this->m_admin->bIsLoggedIn()){
 
+            $data['page'] = $page;
             $data['title'] = ucfirst($page);
 
             $this->load->view('admin/v_header', $data);
             $this->load->view('admin/v_sidebar', $data);
 
+            if( $page == 'eco_acteur' ){
+
+                $data['table'] = 'ecoActors';
+            }
+
             $this->load->view('admin/pages/v_'.$page, $data);
+
+
 
             $this->load->view('admin/v_footer', $data);
 
