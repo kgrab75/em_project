@@ -1,11 +1,15 @@
 body {
     font-family: ralewayregular, Arial, sans-serif;
     color:#646462;
+    background-color: #f2e5d2;
+    background-image: url("../images/bg.jpg");
+    background: url("../images/bg.jpg") #f2e5d2 no-repeat center center fixed;
 }
 
 .clear {
     clear: both;
 }
+
 
 a{
     font-size: 15px;
@@ -19,10 +23,48 @@ h1 {
 
 h2 {
     color: #7ed2ec;
+    font-size: 1.8em;
 }
 
-.container {
-    background-color: #E5F8FE;
+form {
+    margin-top: 3em;
+}
+form .form-group {
+    margin-top: 2em;
+}
+
+
+.h3Bloc {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin-bottom: 0;
+    font-size: 1.5em;
+    background-color: #7ed2ec;
+    color: #FAFEFF;
+}
+
+.content-area {
+    background-color:#fafeff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+
+.no-margin-top{
+    margin-top: 0;
+}
+
+body > .container, body > .container-fluid  {
+
+    background-color: rgba(229, 248, 254, 0.75);
+    padding-bottom: 2em;
+    margin-top : 2em;
+    margin-bottom : 2em;
 }
 
 .bg-secondary{
@@ -33,15 +75,29 @@ blockquote {
     border-left: 5px solid #7ed2ec;
 }
 
+button.btn-block {
+    margin: 1em 0;
+}
+
+
 /* ***  MENU *** */
 
 .navbar a {
     color: #ffffff;
+    font-size: 1.2em;
 }
-.menu .nav > li > a:hover,
-.menu .nav > li > a:active,
-.menu .nav > li > a:focus {
 
+.nav > li > a:hover,
+.nav > li > a:active,
+.nav > li > a:focus {
+
+    background-color: transparent;
+}
+
+
+.navbar  a:hover,
+.navbar  a:active,
+.navbar  a:focus {
     background-color: transparent;
     color: #35a0c4;
 }
@@ -53,17 +109,12 @@ blockquote {
 header.menu {
     background-color: #7ed2ec;
     margin-bottom: 0;
+    border-radius: 0;
 }
-
-.navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-header  > a {
-    color:#ffffff;
-}
-
 
 .navbar-brand {
     font-family: ralewaybold, Arial, sans-serif;
-    padding-top: 9px;
+    padding-top: 0.65em;
 }
 
 .navbar-brand img {
@@ -75,7 +126,6 @@ header.menu {
 
 .footer {
     background-color: #7ed2ec;
-    margin-top: 2em;
 }
 .footer a.padLink {
     margin-right: 2em;
@@ -102,18 +152,127 @@ aside .no-margin-bottom{
     margin-bottom: 0;
 }
 
-button.btn-block {
-    margin: 1em 0;
+aside ul.info > li > a{
+    line-height: 2.5em;
+    font-size: 1.2em;
 }
+
+aside ul.actus li  {
+    border-bottom: 1px solid #FFA13E;
+}
+
+aside ul.actus li:last-child {
+    border: 0;
+}
+
+aside ul.info  .badge {
+    background-color:#35a0c4;
+    font-size: 1.6em;
+    border-radius: 1.8em;
+    padding-bottom: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-bottom: 0.3em;
+    margin-top: 0.2em;
+    margin-right: 0.3em;
+    letter-spacing: 0.1em;
+    line-height: 0.8em;
+
+}
+
+aside ul.info > li > a:hover .badge, aside ul.info > li > a:active .badge, aside ul.info > li > a:focus .badge {
+    background-color: #3bbbe2;
+}
+
+
+aside .info i {
+    font-size: 2em;
+    vertical-align:middle;
+    width: 1em;
+    border-radius: 1em;
+    text-align: center;
+    margin-right: 0.3em;
+}
+
+
+aside .info a {
+    line-height: 2em;
+}
+
+aside .sideContent  {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #f2e5d2;
+}
+
+
+
+/* ***  CARTES GOOGLE *** */
 
 #totalGES {
     font-size: 1.2em;
+}
+
+
+.mapInfo h3 span.mini {
+    font-size: 0.8em;
+}
+
+.mapInfo h3 span.maxi {
+    font-size: 1.5em;
+}
+
+.mapInfo h2{
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
 
 }
 
-.map {
+.infosParcours {
+    margin-top: 0.5em;
+}
+
+.infosParcours p {
+    font-size: 1.2em;
+    margin-bottom: 0.2em;
+}
+
+.badgeRight {
+    padding: 0.1em 0.7em 0.3em 0.7em;
+    float: right;
+    border-radius:1em;
+    background-color: #35A0C4;
+    font-size: 0.8em;
+    line-height: 1em;
+    letter-spacing: 0.1em;
 
 }
+
+.listeXp .content-area {
+    margin-bottom: 1em;
+}
+
+.listeXp .h3Bloc:hover,
+.listeXp .h3Bloc:active,
+.listeXp .h3Bloc:focus,
+.listeXp > a:hover,
+.listeXp > a:active,
+.listeXp > a:focus {
+    color: #35A0C4;
+    text-decoration: none;
+}
+
+a.showMore {
+    margin-left: 1em;
+}
+
+ul.pagination {
+    margin-bottom: 0;
+    margin-top: 1em;
+}
+
 
 /* *** ADMIN *** */
 
@@ -144,8 +303,12 @@ button.btn-block {
     margin-bottom: 10px;
 }
 
-.navbar p.deco {
-    margin: 8px 0;
+.navbar-admin p.deco {
+    margin: 6px 0;
+}
+
+.navbar-admin{
+    border-radius: 0;
 }
 
 /* *** SIDEBAR ADMIN *** */
@@ -180,22 +343,74 @@ button.btn-block {
     padding-right: 20px;
     padding-left: 20px;
 }
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
-    color: #fff;
-    background-color: #428bca;
-}
 
 .nav-sidebar.nav > li > a:hover, .nav-sidebar.nav > li > a:focus {
     background-color: #fcf8df;
     text-decoration: none;
 }
 
-.sidebar li a span {
+.nav-sidebar.nav > .active > a,
+.nav-sidebar.nav > .active > a:hover,
+.nav-sidebar.nav > .active > a:focus {
+    color: #fff;
+    background-color: #428bca;
+}
+
+.sidebar li a i {
     margin-right: 10px;
     text-align: center;
     width: 15px;
 }
 
+/* *** BREADCRUMBS *** */
+
+.breadcrumb-admin {
+    display: inline-block;
+    list-style: none outside none;
+    margin-bottom: 0;
+    padding: 11px 0;
+    background-color: transparent;
+}
+
+.breadcrumb-admin a, .breadcrumb-admin > li:before, .breadcrumb-admin > .active{
+    font-family: ralewaybold,Arial,sans-serif;
+    font-size: 18px;
+}
+
+.breadcrumb-admin > li + li:before , .breadcrumb-admin > li:before {
+    color: #FFA13E;
+    content: "/ ";
+    padding: 0 5px;
+}
+
+.breadcrumb-admin > .active {
+    color: #428bca;
+}
+
+/* *** CRUD *** */
+
+.crud button.add {
+    border-radius: 6px 6px 0 0;
+}
+
+.crud table{
+    background-color: #ffffff;
+    margin-bottom: 0;
+}
+
+.crud button.save {
+    border-radius: 0 0 6px 6px;
+}
+
+.btn-orange {
+    background-color: #FFA13E;
+    border-color: #ef8539;
+    color: #ffffff;
+}
+
+.btn-orange:hover {
+    background-color: #ef8539;
+    border-color: #FFA13E;
+    color: #ffffff;
+}
 
