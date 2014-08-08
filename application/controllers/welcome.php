@@ -26,6 +26,11 @@ class Welcome extends CI_Controller {
         parent:: __construct();
         $this->load->helper("url");
         $this->load->library("pagination");
+        $this->load->helper('email');
+        $this->load->library('email');
+        $this->load->library('form_validation');
+
+
     }
 
 	public function index()
@@ -45,6 +50,11 @@ class Welcome extends CI_Controller {
             $this->load->model('M_'.$page);
 
             $data['lastActor'] = $this->M_accueil->getLastActor();
+
+            $data['last10'] = $this->M_accueil->select10();
+            $last10Json = json_encode($data['last10']);
+            //var_dump($last10Json);
+
         }
 
 
@@ -63,7 +73,57 @@ class Welcome extends CI_Controller {
         }
 
         if($page == "contact") {
+            $this->load->model('M_'.$page);
 
+            $this->form_validation->set_rules('message', 'Message', 'required' );
+            $this->form_validation->set_rules('prenom', 'Prenom', 'required' );
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|strip_tags|xss_clean' );
+            $this->form_validation->set_rules('objet', 'Objet', 'required' );
+            $this->form_validation->set_rules('okForm', 'conditions', 'required' );
+
+            $this->form_validation->set_message('required', 'has-error text-danger');
+
+
+            $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+
+
+            if($this->form_validation->run() !== false){
+                $nom = $this->input->post('nom');
+                $prenom = $this->input->post('prenom');
+                $email = $this->input->post('email');
+                $objet = $this->input->post('objet');
+                $message = $this->input->post('message');
+
+                /*
+                if(!isset($prenom)){
+                    $nomPrenom = $nom;
+                } else {
+                    $nomPrenom = $nom ." ".$prenom;
+                }
+
+                $this->email->from($email, $nomPrenom);
+                $this->email->to('golden-13@hotmail.fr');
+                $this->email->cc('lch-dzign@gmail.com');
+                //$this->email->bcc('them@their-example.com');
+
+                $this->email->subject($objet);
+                $this->email->message($message);
+
+                $this->email->send();
+
+                // PRINT POUR DEBUGG ENVOI EMAIL
+                echo $this->email->print_debugger();
+
+                */
+
+                $this->M_contact->insertMessage($nom, $prenom, $email, $objet, $message);
+
+                redirect('/contactsuccess', 'refresh');
+
+
+
+            }
         }
 
         $this->load->view('generic/header', $data);

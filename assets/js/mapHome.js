@@ -1,5 +1,14 @@
 $( document ).ready(function() {
 
+    console.log("Fonction chargée");
+
+    //var scriptData = <?php echo $last10Json; ?>;
+    //var dataLast = JSON.parse('<?php echo $last10Json?>');
+    //console.log(dataLast);
+    //console.log("Fonction chargée 2");
+
+    //console.log(scriptData);
+
     var directionsDisplay;
     var directionsService = new google.maps.DirectionsService();
 

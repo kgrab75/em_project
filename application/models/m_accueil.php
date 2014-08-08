@@ -24,6 +24,14 @@ class M_accueil extends CI_Model {
 
     }
 
+    function select10()
+    {
+        $sql = 'SELECT * FROM ecoActors WHERE valide = 1 ORDER BY id DESC LIMIT 10';
+        $query = $this->db->query($sql);
+        // Fetch the result array from the result object and return it
+        return $query->result();
+    }
+
 
 }
 
