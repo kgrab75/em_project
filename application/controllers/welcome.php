@@ -31,6 +31,7 @@ class Welcome extends CI_Controller {
         $this->load->library('form_validation');
 
 
+
     }
 
 	public function index()
@@ -39,6 +40,7 @@ class Welcome extends CI_Controller {
 	}
 
     public function view($page = 'accueil', $pagen = 0){
+
 
         $data['title'] = ucfirst($page);
         $data['sidebar_content']['info']='generic/info';
@@ -54,6 +56,13 @@ class Welcome extends CI_Controller {
             $data['last10'] = $this->M_accueil->select10();
             $last10Json = json_encode($data['last10']);
             //var_dump($last10Json);
+
+            // RECUPERATION DU JSON EN JAVACRIPT
+            echo '<script type="text/javascript">';
+            echo "var myJson = '" . $last10Json . "';";
+            echo '</script>';
+
+
 
         }
 
@@ -72,14 +81,73 @@ class Welcome extends CI_Controller {
 
         }
 
+        if($page == "experience") {
+            $this->load->model('M_'.$page);
+
+            $idXp = $this->uri->segment(2);
+
+
+            $nom = $this->input->post('nom');
+            $prenom = $this->input->post('prenom');
+            $email = $this->input->post('email');
+            $message = $this->input->post('message');
+            $ip = $this->input->post('ip');
+
+            $this->form_validation->set_rules('nom', 'Nom', 'trim' );
+            $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required' );
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|strip_tags|xss_clean' );
+            $this->form_validation->set_rules('okForm', 'conditions', 'trim|required' );
+            $this->form_validation->set_rules('message', 'Message', 'trim|required' );
+            $this->form_validation->set_rules('ip', 'IP', 'required' );
+
+            $this->form_validation->set_message('required', 'has-error text-danger');
+
+
+            $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+            if($this->form_validation->run() !== false){
+
+                $this->M_experience->insertComment($nom, $prenom, $email, $message, $idXp, $ip);
+                $redirect = $this->uri->uri_string()."?p=success";
+                redirect($redirect, 'refresh');
+            }
+
+
+
+            //$lastUri = end($this->uri->segment_array());
+            //echo $lastUri;
+
+            /*
+            if(!is_numeric($lastUri)){
+
+            }
+    */
+            $data["dataXp"] = $this->M_experience->getXp($idXp);
+
+            $xpJson = json_encode($data['dataXp']);
+
+
+            // RECUPERATION DU JSON EN JAVACRIPT
+            echo '<script type="text/javascript">';
+            echo "var xpJson = '" . $xpJson . "';";
+            echo '</script>';
+
+
+            $data["comments"]= $this->M_experience->getComments($idXp);
+
+
+        }
+
         if($page == "contact") {
             $this->load->model('M_'.$page);
 
-            $this->form_validation->set_rules('message', 'Message', 'required' );
-            $this->form_validation->set_rules('prenom', 'Prenom', 'required' );
+
+            $this->form_validation->set_rules('nom', 'Nom', 'trim' );
+            $this->form_validation->set_rules('prenom', 'Prenom', 'trim|required' );
             $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|strip_tags|xss_clean' );
             $this->form_validation->set_rules('objet', 'Objet', 'required' );
-            $this->form_validation->set_rules('okForm', 'conditions', 'required' );
+            $this->form_validation->set_rules('okForm', 'conditions', 'trim|required' );
+            $this->form_validation->set_rules('message', 'Message', 'trim|required' );
 
             $this->form_validation->set_message('required', 'has-error text-danger');
 
@@ -124,6 +192,15 @@ class Welcome extends CI_Controller {
 
 
             }
+        }
+
+
+        if($page == "ecoactors") {
+
+            $this->load->model('M_'.$page);
+
+            $data["ecoactors"]= $this->M_ecoactors->ecoactors();
+
         }
 
         $this->load->view('generic/header', $data);

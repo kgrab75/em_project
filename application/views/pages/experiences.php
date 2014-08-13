@@ -65,7 +65,7 @@
                     }
 
                 } else {
-                    $result = $bigUnit.'.0km';
+                    $result = $bigUnit.'.0'.$bigUnitString;
                 }
 
 
@@ -102,7 +102,7 @@
             $transport = $row->transport;
 
             if($transport == "WALKING") {
-                $transport = "A pieds";
+                $transport = "Marche à pied";
                 $transportClass = "apied";
             }
             if($transport == "TRANSIT") {
@@ -114,11 +114,11 @@
                 $transportClass = "covoiturage";
             }
             if($transport == "BICYCLING") {
-                $transport = "A vélo";
+                $transport = "Vélo";
                 $transportClass = "velo";
             }
             echo '<div class="'. $transportClass .' '.  strtolower ($row->difficulty) .  '">';
-            echo '<a href="' . $url .'experience/' . $row->id .'"><h3 class="h3Bloc panel-heading">' . character_limiter(ucfirst($row->titre), 50) . '<span class="badgeRight"> - '. $ges .'</span></h3></a>';
+            echo '<a class="head" href="' . $url .'experience/' . $row->id .'"><h3 class="h3Bloc panel-heading">' . character_limiter(ucfirst($row->titre), 45) . '<span class="badgeRight"> - '. $ges .'</span></h3></a>';
             echo '<div class="content-area col-sm-12">';
 
             echo '<p>' . character_limiter( ucfirst($row->description), 255) . '<a class="showMore" href="' . $url .'experience/' . $row->id .'">Lire la suite</a></p>';

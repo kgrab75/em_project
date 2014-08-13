@@ -8,7 +8,7 @@
         </li>
         <li>
             <a href="<?= base_url(); ?>ecoactors">
-                <i class="fa fa-trophy "></i>Meilleurs "éco-acteurs"
+                <i class="fa fa-trophy "></i>Meilleur "éco-acteur"
             </a>
         </li>
         <li>

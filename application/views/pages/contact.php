@@ -4,17 +4,13 @@
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non est igitur voluptas bonum. Quae contraria sunt his, malane? Duo Reges: constructio interrete. </p>
 
-
-    <?php //echo validation_errors(); ?>
-
-
     <form role="form" class="form-horizontal" method="post" action="contact">
 
         <div class="form-group">
 
             <label for="nom" class="col-sm-2">Nom</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="nom" placeholder="Votre nom" value="<?php echo set_value('nom'); ?>">
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom" value="<?php echo set_value('nom'); ?>">
                 <?php echo form_error("nom"); ?>
             </div>
 
@@ -67,6 +63,8 @@
             </div>
         </div>
         <p><span class="required">*</span> Champs obligatoires</p>
+
+
 
         <button type="submit" class="btn btn-primary btn-block btn-lg">Envoyer</button>
     </form>

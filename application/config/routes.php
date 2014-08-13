@@ -46,6 +46,9 @@ $route['ajax'] = "ajax";
 $route['([a-z]+)'] = "welcome/view/$1";
 $route['([a-z]+/[a-z]+/(:num))'] = "welcome/view/$1/$2/$3";
 $route['(experiences/+[a-z]+)'] = "welcome/view/$1/$2/0";
+$route['(experience/+(:num))'] = "welcome/view/$1/$2";
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

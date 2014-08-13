@@ -1,6 +1,12 @@
 $( document ).ready(function() {
 
+   $("#submitValue").on("click", function(){
+       $("#mapRoute").show();
+       return false;
+   });
 
+
+/*
 var rendererOptions = {
     draggable: true
 };
@@ -40,9 +46,6 @@ function calcRoute() {
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
 
-            //DUREE DU PARCOURS
-            var duration = response.routes[0].legs[0].duration.text;
-            document.getElementById('duration').innerHTML = duration;
         }
     });
 }
@@ -60,12 +63,24 @@ function computeTotalDistance(result) {
 
     // TOTAL MIS AU FORMAT KM
     total = total / 1000.0;
-    var GES = total * 70;
+    var GES = total * 69.81;
+
+    if(GES < 1000) {
+        GES = Math.round(GES*100)/100;
+        document.getElementById('totalGES').innerHTML = GES + ' g';
+    } else {
+        GES = GES /1000;
+        GES = Math.round(GES*100)/100;
+        document.getElementById('totalGES').innerHTML = GES + ' kg';
+    }
     document.getElementById('totalKm').innerHTML = total + ' km';
-    document.getElementById('totalGES').innerHTML = GES + ' g';
+
+    document.getElementById('duration').innerHTML = myroute.legs[0].duration.text;
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+*/
 
 });
