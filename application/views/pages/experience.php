@@ -7,7 +7,10 @@
 
     <?php
     if(isset($_GET["p"]) && $_GET["p"] == "success"){
-        echo "<div class='alert alert-success'>Votre commentaire a bien été posté</div>";
+        echo "<div class='alert alert-success'><h4>Votre commentaire a bien été enregistré !</h4></div>";
+    }
+    if(isset($_GET["p"]) && $_GET["p"] == "spam"){
+        echo "<div class='alert alert-danger'><h4><b>Attention </b></h4><b>Votre commentaire a bien été enregistré, cependant le contenu a été détecté comme spam, aussi un modérateur vérifiera votre commentaire avant la mise en ligne de ce dernier.</b></div>";
     }
     ?>
 
@@ -19,10 +22,23 @@
     if(set_value('ip')){
         echo '<script type="text/javascript" src="'.base_url().'/assets/js/scrollto.js"></script>';
     }
+
+    // MOYEN DE TRANSPORT
+    if($dataXp->transport == "WALKING"){
+        $transport = "Marche à pied";
+    } if($dataXp->transport == "WALKING"){
+        $transport = "Marche à pied";
+    } if($dataXp->transport == "TRANSIT"){
+        $transport = "Transport en commun";
+    } if($dataXp->transport == "BICYCLING"){
+        $transport = "Vélo";
+    } if($dataXp->transport == "DRIVING"){
+        $transport = "Covoiturage";
+    }
     ?>
 
 
-    <h2 class="bg-primary panel-heading no-margin-bottom">Feuille de route</h2>
+    <h2 class="bg-primary panel-heading no-margin-bottom">Feuille de route (<?php  echo ucfirst($transport); ?>)</h2>
 
     <section class="content-area">
         <div class="col-sm-9">
@@ -32,28 +48,42 @@
 
         <div class="col-sm-3 text-center">
             <div class="mapInfo ges">
-                <h3 class="h3Bloc panel-heading no-margin-top"><span class="maxi">CO<sub>2</sub></span> <span class="mini"><br/>économisé :</span></h3>
+                <h3 class="h3Bloc panel-heading no-margin-top"><span class="maxi">CO<sub>2</sub></span> <span class="mini"><br/>économisé* :</span></h3>
                 <h2 class=""><span id="totalGES"></span></h2>
             </div>
 
             <div class="mapInfo distance">
                 <h3 class="h3Bloc panel-heading">Distance : </h3>
                 <h2 class=""><span id="totalKm"></span></h2>
+                <p id="carDistance"></p>
             </div>
 
             <div class="mapInfo duration">
                 <h3 class="h3Bloc panel-heading">Durée : </h3>
                 <h2 class=""><span id="duration"></span></h2>
+                <p id="carDuree"></p>
             </div>
 
+
+        </div>
+
+
+
+        <div class="col-sm-12">
+                <div class="legendMap">
+                    <div class="col-sm-4"><i style="color: #33a0d4" class="fa fa-circle"></i> Trajet Eco-action</div>
+                    <?php if($transport !== "Covoiturage"){ echo '<div class="col-sm-4"><i style="color: #a0becd" class="fa fa-circle"></i> Trajet référence en voiture</div>';} ?>
+                </div>
+            <div class="clear"></div>
+                <p>*Par rapport à un trajet identique effectué en voiture (Références : émission C0<sup>2</sup>: 69.81 g/km)</p>
+                <p class="small">Les calculs sont effectués d'après un itinéraire voiture généré en temps réel, aussi le taux d'economie de CO2 peut varier en fonction de problèmes de voirie qui pourraient avoir une incidence sur la distance de l'itinéraire</p>
         </div>
 
 
         <div class="col-sm-12">
 
-
-
             <div class="col-sm-12">
+                <h2>Votre itinéraire</h2>
                 <div id="directionsPanel">
 
                 </div>

@@ -11,6 +11,10 @@ body {
 }
 
 
+b {
+    font-family: ralewaybold, Arial, sans-serif;
+}
+
 a{
     font-weight: bold;
     color: #35a0c4;
@@ -166,13 +170,6 @@ aside ul.info > li > a{
     font-size: 1.2em;
 }
 
-aside ul.actus li  {
-    border-bottom: 1px solid #FFA13E;
-}
-
-aside ul.actus li:last-child {
-    border: 0;
-}
 
 aside ul.info  .badge {
     background-color:#35a0c4;
@@ -222,6 +219,10 @@ aside .sideContent  {
     font-size: 1.2em;
 }
 
+.mapInfo {
+    padding-bottom: 0.4em;
+}
+
 
 .mapInfo h3 span.mini {
     font-size: 0.8em;
@@ -233,12 +234,28 @@ aside .sideContent  {
 
 .mapInfo h2{
     padding-top: 0.4em;
-    padding-bottom: 0.4em;
+
     margin-top: 0;
     margin-bottom: 0.5em;
 
 }
 
+.mapInfo p {
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.legendMap div {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#directionsPanel {
+    max-height: 600px;
+    height: 600px;
+    overflow: scroll;
+}
 
 #map-canvas .labels {
     color: red;
@@ -310,7 +327,7 @@ a.head {
 
 .listeXp .h3Bloc:hover,
 .listeXp .h3Bloc:active,
-.listeXp .h3Bloc:focus {
+.listeXp .h3Bloc:focus{
     color: #ffffff;
     text-decoration: underline;
     background-color: #35A0C4;
@@ -374,3 +391,28 @@ div.comment-content {
 
 }
 
+
+/* ***** ACTUS ***** */
+
+.content-actu {
+    background-color:#fcf8df;
+}
+
+.h3Actu {
+
+
+}
+
+a > .h3Actu {
+    color:#35a0c4;
+
+}
+
+a:hover > .h3Actu,
+a:hover > .h3Actu,
+a:hover > .h3Actu{
+    color:#3bbbe2;
+    border-bottom: none;
+    text-decoration: underline;
+
+}

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class M_ecoactors extends CI_Model {
+class M_actu extends CI_Model {
 
     public function __construct() {
 
@@ -14,11 +14,11 @@ class M_ecoactors extends CI_Model {
         $this->load->library("pagination");
     }
 
+    // PREPARATION DE LA REQUETE
+    public function actuDetails( $id) {
 
-    public function ecoactors() {
+        $query = $this->db->query("SELECT * FROM actus WHERE status = 1 AND id = $id LIMIT 1");
 
-        $query = $this->db->query("SELECT id, titre, difficulty, transport, description, start, arrival, ROUND(11*10000*SQRT(POW(LEFT(start, 9)-LEFT(arrival, 9),2)+POW(RIGHT(start, 8)-RIGHT(arrival, 8),2)),0) as distance FROM ecoActors WHERE valide = 1 ORDER BY distance DESC
- LIMIT 10;");
 
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $row) {
@@ -27,8 +27,9 @@ class M_ecoactors extends CI_Model {
             return $data;
 
         }
-        return $data;
+        return false;
     }
+
 
 }
 

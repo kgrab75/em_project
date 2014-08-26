@@ -57,7 +57,7 @@
         <div class="form-group">
             <div class="checkbox col-sm-offset-2 col-sm-10">
                 <label>
-                    <input type="checkbox" name="okForm" id="okForm" value="OK"> J'accepte les conditions d'utilisation <span class="required">*</span></a>
+                    <input type="checkbox" name="okForm" id="okForm" value="OK"> J'accepte les <a href="#">conditions générales d'utilisation</a> <span class="required">*</span></a>
                 </label>
                 <?php echo form_error("okForm", "<p class='text-danger bg-danger ", "'> Vous devez accepter les conditions d'utilisation</p>");?>
             </div>

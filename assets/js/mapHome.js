@@ -1,14 +1,9 @@
 $( document ).ready(function() {
 
-    //var scriptData = <?php echo $last10Json; ?>;
     var dataLast = JSON.parse(myJson);
-    //console.log(dataLast[0]);
-    //console.log(dataLast[0].start);
-    //console.log(dataLast[0].arrival);
-    //console.log(dataLast[0].titre);
-    //console.log(dataLast[0].distance);
-    //console.log(dataLast[0].transport);
 
+
+// *********** FONCTIONS GOOGLE MAPS ***********
 
 
 // Initialise some variables
@@ -16,16 +11,44 @@ $( document ).ready(function() {
     var num, map, data;
     var requestArray = [], renderArray = [];
 
-
     var loop = 0;
     var contentLoop="{";
 
-    while (loop < 10) {
-        console.log(dataLast[loop].titre);
+    //MARKERS
+    var imgD = '../assets/images/markerD.png';
+    var imgA = '../assets/images/markerA.png';
+    var infowindow = new google.maps.InfoWindow(), i;
+
+
+    var locations = [];
+    var limit;
+
+    if( dataLast.length < 11){
+        limit =  dataLast.length;
+    }else {
+        limit = 10;
+    }
+
+
+    for(i = 0; i < limit; i++){
+
+        var start = dataLast[i].start;
+        var splitStart = start.split(", ");
+        var end = dataLast[i].arrival;
+        var splitEnd = end.split(", ");
+
+        locations.push([dataLast[i].titre, splitStart[0], splitStart[1], splitEnd[0], splitEnd[1], dataLast[i].id]);
+
+    }
+
+
+    while (loop < limit) {
+        //console.log(dataLast[loop].titre);
 
         contentLoop += '"'+dataLast[loop].titre+'":';
         contentLoop+= '["'+dataLast[loop].start+'" , "'+dataLast[loop].arrival+'"]';
-        if(loop<9){
+        //contentLoop+= '["'+dataLast[loop].start+'" , "'+dataLast[loop].arrival+'" , "'+dataLast[loop].transport+'" , "'+dataLast[loop].id+'"]';
+        if(loop<limit-1){
             contentLoop += ",";
         }else {
             contentLoop += "}";
@@ -51,14 +74,14 @@ $( document ).ready(function() {
             var waypts = [];
 
             // 'start' and 'finish' will be the routes origin and destination
-            var start, finish
+            var start, finish;
 
             // lastpoint is used to ensure that duplicate waypoints are stripped
-            var lastpoint
+            var lastpoint;
 
-            data = jsonArray[route]
+                data = jsonArray[route];
 
-            limit = data.length
+            limit = data.length;
 
             for (var waypoint = 0; waypoint < limit; waypoint++) {
                 if (data[waypoint] === lastpoint){
@@ -97,7 +120,10 @@ $( document ).ready(function() {
 
             // and save it in our requestArray
             requestArray.push({"route": route, "request": request});
-            console.log(request);
+            //console.log(request);
+
+
+
         }
 
         processRequests();
@@ -118,7 +144,7 @@ $( document ).ready(function() {
             if (status == google.maps.DirectionsStatus.OK) {
 
                 // Create a unique DirectionsRenderer 'i'
-                renderArray[i] = new google.maps.DirectionsRenderer();
+                renderArray[i] = new google.maps.DirectionsRenderer({suppressMarkers: true});
                 renderArray[i].setMap(map);
 
 
@@ -133,22 +159,15 @@ $( document ).ready(function() {
                         strokeWeight: 4,
                         strokeOpacity: 0.8,
                         strokeColor: colourArray[0]
-                    },
-                    markerOptions:{
-                        /*icon:{
-                            path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-                            scale: 3,
-                            strokeColor: colourArray[i+1]
-                        }*/
-                        icon:img,
-                        title:dataLast[i].titre,
                     }
+
                 });
 
 
                 // Use this new renderer with the result
                 renderArray[i].setDirections(result);
                 // and start the next request
+
                 nextRequest();
             }
 
@@ -189,7 +208,45 @@ $( document ).ready(function() {
 
         // Start the request making
         generateRequests()
+        setMarker();
 
+
+    }
+
+    function setMarker()  {
+
+        var i;
+
+         for (i = 0; i < locations.length; i++) {
+
+             markerStart = new google.maps.Marker({
+                 position: new google.maps.LatLng(locations[i][1] , locations[i][2]),
+                 icon:imgD,
+                 title:locations[i][0],
+                 map: map
+             });
+
+             google.maps.event.addListener(markerStart, 'click', (function(markerStart, i) {
+                 return function() {
+                     infowindow.setContent("<h3 class='h3Bloc panel-heading text-center'>Départ</h3><h4> <a href='experience/" +locations[i][5]+ "'> " + locations[i][0].ucfirst() +"</a></h4>");
+                     infowindow.open(map, markerStart);
+                 }
+             })(markerStart, i));
+
+
+             markerEnd = new google.maps.Marker({
+                 position: new google.maps.LatLng(locations[i][3] , locations[i][4]),
+                 icon:imgA,
+                 title:locations[i][0],
+                 map: map
+             });
+             google.maps.event.addListener(markerEnd, 'click', (function(markerEnd, i) {
+                 return function() {
+                     infowindow.setContent("<h3 class='h3Bloc panel-heading text-center'>Arrivée</h3><h4> <a href='experience/" +locations[i][5]+ "'> " + locations[i][0].ucfirst() +"</a></h4>");
+                     infowindow.open(map, markerEnd);
+                 }
+             })(markerEnd, i));
+         }
 
     }
 
@@ -197,6 +254,9 @@ $( document ).ready(function() {
 
     // Get the ball rolling and trigger our init() on 'load'
     google.maps.event.addDomListener(window, 'load', init);
+
+    // *********** FIN FONCTIONS GOOGLE MAPS ***********
+
 
 
 });

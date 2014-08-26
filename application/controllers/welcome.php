@@ -47,6 +47,11 @@ class Welcome extends CI_Controller {
         $data['sidebar_content']['actu']='generic/actu';
         $data['sidebar_content']['community']='generic/community';
 
+        $this->load->model('M_generic');
+
+        $data['experienceCount'] = $this->M_generic->experienceCount();
+        $data["lastActu"] = $this->M_generic->lastActu();
+
 
         if($page == "accueil") {
             $this->load->model('M_'.$page);
@@ -71,15 +76,89 @@ class Welcome extends CI_Controller {
 
             $this->load->model('M_'.$page);
 
+            $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|strip_tags|xss_clean' );
+            $this->form_validation->set_rules('titre', 'Titre', 'required' );
+            $this->form_validation->set_rules('transportType', 'Type de transport', 'required' );
+            $this->form_validation->set_rules('difficulty', 'Difficulté', 'required' );
+            $this->form_validation->set_rules('depart', 'Adresse de départ', 'trim|required' );
+            $this->form_validation->set_rules('arrivee', 'Adresse d\'arrivée', 'trim|required' );
+            $this->form_validation->set_rules('description', 'Details', 'trim|required' );
+            $this->form_validation->set_rules('okForm', 'conditions', 'trim|required' );
+            $this->form_validation->set_rules('ip', 'IP', 'required' );
+
+
+            $this->form_validation->set_message('required', 'has-error text-danger');
+
+
+            $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+
+
+            if($this->form_validation->run() !== false){
+                $email = $this->input->post('email');
+                $titre = $this->input->post('titre');
+                $difficulty = $this->input->post('difficulty');
+                $transport = $this->input->post('transportType');
+                $depart = $this->input->post('start');
+                $arrivee = $this->input->post('end');
+                $description = $this->input->post('description');
+                $concours = $this->input->post('concours');
+                $ip = $this->input->post('ip');
+
+                if($concours !== "yes"){$concours = "no";}
+
+
+
+                // RECUPERATION DU GES, etc...
+
+                /*
+
+                $this->email->from($email, $nomPrenom);
+                $this->email->to('golden-13@hotmail.fr');
+                $this->email->cc('lch-dzign@gmail.com');
+                //$this->email->bcc('them@their-example.com');
+
+                $this->email->subject($objet);
+                $this->email->message($message);
+
+                $this->email->send();
+
+                // PRINT POUR DEBUGG ENVOI EMAIL
+                echo $this->email->print_debugger();
+
+                */
+
+                $this->M_participation->insertXp($email, $depart, $arrivee, $titre, $description, $concours, $difficulty, $transport, $ip);
+
+                redirect('/participationsuccess', 'refresh');
+
+
+
+            }
+
+
+
+
         }
 
 
         if($page == "experiences") {
             $this->load->model('M_'.$page);
 
-            $this->_paginationXp();
+            $this->_paginationXp("experiences/","M_experiences", 2, 3, 5);
 
+            $jsonData = json_encode($this->data["results"]);
+
+
+            // RECUPERATION DU JSON EN JAVACRIPT
+            echo '<script type="text/javascript">';
+            echo "var xpJson = '" . $jsonData . "';";
+            echo "var url = '" . base_url() . "';";
+            echo '</script>';
         }
+
+
+
 
         if($page == "experience") {
             $this->load->model('M_'.$page);
@@ -107,22 +186,41 @@ class Welcome extends CI_Controller {
 
             if($this->form_validation->run() !== false){
 
-                $this->M_experience->insertComment($nom, $prenom, $email, $message, $idXp, $ip);
-                $redirect = $this->uri->uri_string()."?p=success";
+
+                $this->M_experience->_init_akismet();
+
+                // set up your comment data to be passed to Akismet here, e.g:
+                $akismet_comment_data = array(
+                    'user_ip'     => $ip,
+                    'comment_author'     => $prenom,
+                    'comment_author_email'   => $email,
+                    'comment_content'      => $message
+
+                );
+
+                if ($this->akismet->is_spam($akismet_comment_data)) // perform the check
+                {
+                    $spam = "yes"; // flag the comment as spam
+                    $status = 0;
+                    $getUrl = "spam";
+
+                } else {
+                    $spam = "no";
+                    $status = 1;
+                    $getUrl = "success";
+                }
+
+
+
+        $this->M_experience->insertComment($nom, $prenom, $email, $message, $idXp, $ip, $spam , $status);
+                $url = base_url();
+                $redirect = $url . "experience/". $idXp ."?p=".$getUrl;
                 redirect($redirect, 'refresh');
             }
 
 
-
-            //$lastUri = end($this->uri->segment_array());
-            //echo $lastUri;
-
-            /*
-            if(!is_numeric($lastUri)){
-
-            }
-    */
             $data["dataXp"] = $this->M_experience->getXp($idXp);
+
 
             $xpJson = json_encode($data['dataXp']);
 
@@ -201,6 +299,34 @@ class Welcome extends CI_Controller {
 
             $data["ecoactors"]= $this->M_ecoactors->ecoactors();
 
+
+            $jsonData = json_encode($data["ecoactors"]);
+
+
+            // RECUPERATION DU JSON EN JAVACRIPT
+            echo '<script type="text/javascript">';
+            echo "var jsonData = '" . $jsonData . "';";
+            echo "var url = '" . base_url() . "';";
+            echo '</script>';
+
+        }
+
+        if($page == "actus") {
+            $this->load->model('M_'.$page);
+
+            $this->_paginationXp("","M_actus", 1, 2, 2);
+            $this->data["results"];
+
+        }
+
+
+        if($page == "actu") {
+            $this->load->model('M_'.$page);
+
+            $idActu = $this->uri->segment(2);
+
+            $data["actu"] = $this->M_actu->actuDetails($idActu);
+
         }
 
         $this->load->view('generic/header', $data);
@@ -212,16 +338,15 @@ class Welcome extends CI_Controller {
 
 
 
-    private function _paginationXp() {
+    private function _paginationXp($path, $model, $baseUrl, $segmentPage, $limit) {
         $config = array();
 
-        $urlActive = $this->uri->segment(2);
+        $urlActive = $this->uri->segment($baseUrl);
 
-
-        $config["base_url"] = base_url() . "/experiences/".$urlActive."/";
-        $config["total_rows"] = $this->M_experiences->total_ecoActors();
-        $config["per_page"] = 5;
-        $config["uri_segment"] = 3;
+        $config["base_url"] = base_url() .  $path .$urlActive."/";
+        $config["total_rows"] = $this->$model->total_ecoActors();
+        $config["per_page"] = $limit;
+        $config["uri_segment"] = $segmentPage;
         $choice = $config["total_rows"] / $config["per_page"];
         $config["num_links"] = round($choice);
 
@@ -237,20 +362,25 @@ class Welcome extends CI_Controller {
         $config['prev_tag_open'] = '<li>';
         $config['prev_tag_close'] = '</li>';
 
-        $config['cur_tag_open'] = '<li><a href="">';
+        $config['cur_tag_open'] = '<li class="active"><a href="">';
         $config['cur_tag_close'] = '</a></li>';
 
         $config['first_tag_open'] = '<li>';
         $config['first_tag_close'] = '</li>';
 
 
-        $pageActive = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $pageActive = ($this->uri->segment($segmentPage)) ? $this->uri->segment($segmentPage) : 0;
 
-        $this->data["results"] = $this->M_experiences->
+
+        $base = $this->uri->segment(1);
+
+        $this->data["results"] = $this->$model->
             fetch_ecoActors($config["per_page"], $pageActive);
 
         $this->pagination->initialize($config);
         $this->data["links"] = $this->pagination->create_links();
+
+
 
     }
 

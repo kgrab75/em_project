@@ -13,6 +13,7 @@ class M_experience extends CI_Model {
         $this->load->helper('form');
         $this->load->helper('text');
         $this->load->library('form_validation');
+        $this->load->library('akismet');
     }
 
 
@@ -31,14 +32,15 @@ class M_experience extends CI_Model {
 
     }
 
-    public function insertComment($nom, $prenom, $email, $message, $id, $ip) {
+    public function insertComment($nom, $prenom, $email, $message, $id, $ip, $spam, $status) {
         $data = array(
             'nom' => $nom ,
             'prenom' => $prenom ,
             'email' => $email,
             'message' => $message,
             'ecoactor_id' => $id,
-            'status' => 1,
+            'status' => $status,
+            'spam' => $spam,
             'ip' => $ip
 
         );
@@ -51,6 +53,17 @@ class M_experience extends CI_Model {
 
         $comments = $query->result();
         return $comments;
+    }
+
+    public function _init_akismet()
+    {
+        // Config
+        $akismet_config = array(
+            'blog_url' => 'your_url_here', // e.g. http://www.example.com/ (note trailing '/')
+            'api_key' => '3ff74964ff7d'
+        );
+
+        $this->akismet->initialize($akismet_config);
     }
 
 

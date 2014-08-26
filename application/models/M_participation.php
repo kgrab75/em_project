@@ -16,7 +16,23 @@ class M_participation extends CI_Model {
     }
 
 
+    public function insertXp($email, $start, $arrival, $titre, $description, $game, $difficulty, $transport, $ip) {
+        $data = array(
+            'email' => $email ,
+            'start' => $start ,
+            'arrival' => $arrival,
+            'titre' => $titre,
+            'description' => $description,
+            'game' => $game,
+            'difficulty' => $difficulty,
+            'transport' => $transport,
+            'ip' => $ip,
+            'valide' => 0
 
+        );
+
+        $this->db->insert('ecoActors', $data);
+    }
 
 
 
