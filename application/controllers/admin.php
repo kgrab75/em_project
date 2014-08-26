@@ -21,6 +21,8 @@ class Admin extends CI_Controller {
 
     function connection(){
 
+        $data['title'] = ucfirst('connection');
+
         if($this->m_admin->bIsLoggedIn()){
             redirect('admin','refresh');
         } else {
@@ -64,12 +66,22 @@ class Admin extends CI_Controller {
             $this->load->view('admin/v_header', $data);
             $this->load->view('admin/v_sidebar', $data);
 
-            if( $page == 'eco_acteur' ){
-
+            if( $page == 'eco_acteur' )
+            {
                 $data['table'] = 'ecoActors';
+                $this->load->view('admin/pages/v_crud', $data);
+            }
+            else if( $page == 'comments' )
+            {
+                $data['table'] = 'comments';
+                $this->load->view('admin/pages/v_crud', $data);
+            }
+            else
+            {
+                $this->load->view('admin/pages/v_'.$page, $data);
             }
 
-            $this->load->view('admin/pages/v_'.$page, $data);
+
 
 
 

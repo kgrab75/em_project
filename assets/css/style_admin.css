@@ -414,3 +414,15 @@ ul.pagination {
     color: #ffffff;
 }
 
+.data{
+    display: inline;
+}
+
+.data span{
+    border: 1px solid transparent;
+}
+
+.bg-add{
+    background-color: #3bbbe2;
+}
+

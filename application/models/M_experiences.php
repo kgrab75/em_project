@@ -36,6 +36,7 @@ class M_experiences extends CI_Model {
             foreach ($query->result() as $row) {
                 $data[] = $row;
             }
+
             return $data;
 
         }
