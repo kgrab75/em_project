@@ -219,12 +219,12 @@ $( document ).ready(function() {
 
 
                 if(i == dataLast.length - 1){
+                    /*
+                    function sortGES(key1, key2){
+                        return key1.total > key2.total;
 
-                    /*function sortGES(key1, key2){
-                        return key1.ges < key2.ges;
-
-                    }*/
-
+                    }
+                    */
                     function sortGES(a,b) {
                         if (a.total < b.total)
                             return 1;
@@ -232,10 +232,9 @@ $( document ).ready(function() {
                             return -1;
                         return 0;
                     }
-                    dataSort.sort(sortGES, contentTop);
+
+                    dataSort.sort(sortGES);
                     console.log(dataSort);
-
-
 
                     function contentTop (){
 
