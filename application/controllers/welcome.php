@@ -212,7 +212,7 @@ class Welcome extends CI_Controller {
 
 
 
-        $this->M_experience->insertComment($nom, $prenom, $email, $message, $idXp, $ip, $spam , $status);
+        //$this->M_experience->insertComment($nom, $prenom, $email, $message, $idXp, $ip, $spam , $status);
                 $url = base_url();
                 $redirect = $url . "experience/". $idXp ."?p=".$getUrl;
                 redirect($redirect, 'refresh');

@@ -15,14 +15,14 @@ app.controller('crudController', function($scope, $http, $timeout) {
     };
 
     function getTableInfos(table) {
-        $http.get("/em_project/index.php/ajax/gettableinfos/"+table).success(function(data){
+        $http.get("/ajax/gettableinfos/"+table).success(function(data){
             $scope.tableInfos = data;
         });
 
     };
 
     function getData(table) {
-        $http.get("/em_project/index.php/ajax/getdata/"+table).success(function(data){
+        $http.get("/ajax/getdata/"+table).success(function(data){
             $scope.datas = data;
             $scope.master= angular.copy(data);
 
@@ -104,7 +104,7 @@ app.controller('crudController', function($scope, $http, $timeout) {
 
         $http({
             method : 'POST',
-            url : '/em_project/index.php/ajax/savedata/' + table,
+            url : '/ajax/savedata/' + table,
             data: postData,
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
 

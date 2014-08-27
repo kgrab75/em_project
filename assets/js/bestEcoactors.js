@@ -211,41 +211,11 @@ $( document ).ready(function() {
 
                 var detailDistance = result.routes[0].legs[0].distance.value;
 
-                obj = {titre:titre, transport:transport, id:id, ges:GES, total:detailDistance};
-                var i2 = 2;
+                obj = {titre:titre, transport:transport, id:id, ges:GES, total:detailDistance, description:description, duree:duree, distance:distance, difficulty:difficulty};
+                var i2 = 1;
                 dataSort.push(obj);
 
 
-
-                if(i == 0) {
-                    j = i + 1;
-
-                    var contentBest = "";
-                    contentBest += "<div class='" + transportClass + " " +difficulty.toLowerCase() + "'>";
-
-                    contentBest     += "<a class='head' href='" + url + "experience/" + id +"'><h3 class='h3Bloc panel-heading'>" + titre.ucfirst() + "<span class='badgeRight'> - " +  GES + "</span></h3></a>";
-
-                    contentBest         += "<div class='content-area col-sm-12'>";
-
-                    contentBest             += "<p>" + description.ucfirst() + "</p>";
-
-                    contentBest             += "<div class='clear'></div>";
-                    contentBest             += "<div class='col-sm-12 bg-secondary infosParcours'>";
-
-                    contentBest             += "<div class='col-sm-3 text-center'><p>" + transport + "</p></div>";
-                    contentBest             += "<div class='col-sm-3 text-center'><p><i class='fa fa-clock-o'></i> " + duree + "</p></div>";
-                    contentBest             += "<div class='col-sm-3 text-center'><p><i class='fa fa-location-arrow'></i> " + distance + "</p></div>";
-                    contentBest             += "<div class='col-sm-3 text-center'><p><i class='fa fa-signal'></i> " + difficulty + "</p></div>";
-
-                    contentBest             += "</div>";
-                    contentBest         += "</div>";
-                    contentBest     += "</div>";
-                    contentBest += "</div>";
-                    contentBest += "<div class='clear'></div>";
-
-                    $("#bestEcoactor").append(contentBest);
-
-                }
 
 
                 if(i == dataLast.length - 1){
@@ -256,24 +226,59 @@ $( document ).ready(function() {
                     }*/
 
                     function sortGES(a,b) {
-                        if (a.ges < b.ges)
+                        if (a.total < b.total)
                             return 1;
-                        if (a.ges > b.ges)
+                        if (a.total > b.total)
                             return -1;
                         return 0;
                     }
-                     dataSort.sort(sortGES, contentTop);
+                    dataSort.sort(sortGES, contentTop);
+                    console.log(dataSort);
+
 
 
                     function contentTop (){
-                        while(i2 < dataLast.length+1) {
-                            console.log(i2);
-                            console.log(dataSort[i2]);
 
 
-                            j = i2 + 2;
+                        if(i2 == 1) {
+                            j = i + 1;
+
+                            var contentBest = "";
+                            contentBest += "<div class=''>";
+
+                            contentBest     += "<a class='head' href='" + url + "experience/" + dataSort[0].id +"'><h3 class='h3Bloc panel-heading'>" + dataSort[0].titre.ucfirst() + "<span class='badgeRight'> - " +  dataSort[0].ges + "</span></h3></a>";
+
+                            contentBest         += "<div class='content-area col-sm-12'>";
+
+                            contentBest             += "<p>" + dataSort[0].description.ucfirst() + "</p>";
+
+                            contentBest             += "<div class='clear'></div>";
+                            contentBest             += "<div class='col-sm-12 bg-secondary infosParcours'>";
+
+                            contentBest             += "<div class='col-sm-3 text-center'><p>" + dataSort[0].transport + "</p></div>";
+                            contentBest             += "<div class='col-sm-3 text-center'><p><i class='fa fa-clock-o'></i> " + dataSort[0].duree + "</p></div>";
+                            contentBest             += "<div class='col-sm-3 text-center'><p><i class='fa fa-location-arrow'></i> " + dataSort[0].distance + "</p></div>";
+                            contentBest             += "<div class='col-sm-3 text-center'><p><i class='fa fa-signal'></i> " + dataSort[0].difficulty + "</p></div>";
+
+                            contentBest             += "</div>";
+                            contentBest         += "</div>";
+                            contentBest     += "</div>";
+                            contentBest += "</div>";
+                            contentBest += "<div class='clear'></div>";
+
+                            $("#bestEcoactor").append(contentBest);
+
+                        }
+
+
+                        while(i2 < dataLast.length) {
+                            //console.log(i2);
+                            //console.log(dataSort[i2]);
+
+
+                            j = i2 + 1;
                             var  content10 = '<tr>';
-                            content10 += "<td class='text-center'>" + i2 + "</td>";
+                            content10 += "<td class='text-center'>" + j + "</td>";
                             content10 += "<td class=''><a href='" + url + "experience/" + dataSort[i2].id + "'>"+ dataSort[i2].titre.ucfirst() + "</a></td>";
                             content10 += "<td class='text-center'>" + dataSort[i2].ges + "</td>";
                             content10 += "<td class=' text-center'>" + dataSort[i2].transport + "</td>";
@@ -285,6 +290,8 @@ $( document ).ready(function() {
 
                             i2++;
                         }
+
+
 
 
 

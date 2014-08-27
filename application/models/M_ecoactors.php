@@ -17,7 +17,7 @@ class M_ecoactors extends CI_Model {
 
     public function ecoactors() {
 
-        $query = $this->db->query("SELECT id, titre, difficulty, transport, description, start, arrival, ROUND(11*10000*SQRT(POW(LEFT(start, 9)-LEFT(arrival, 9),2)+POW(RIGHT(start, 8)-RIGHT(arrival, 8),2)),0) as distance FROM ecoActors WHERE valide = 1 ORDER BY distance DESC
+        $query = $this->db->query("SELECT id, titre, difficulty, transport, description, start, arrival, ROUND(11*10000*SQRT(POW(LEFT(start, 9)-LEFT(arrival, 9),2)+POW(RIGHT(start, 8)-RIGHT(arrival, 8),2)),0) as distance FROM ecoActors WHERE valide = 1 AND game = 'yes' ORDER BY distance DESC
  LIMIT 10;");
 
         if ($query->num_rows() > 0) {
