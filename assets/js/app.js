@@ -117,9 +117,23 @@ app.controller('crudController', function($scope, $http, $timeout) {
         });
     }
 
-    $scope.remove=function(item){
+    $scope.remove = function(item) {
         var index=$scope.datas.indexOf(item)
         $scope.datas.splice(index,1);
+    }
+
+    $scope.toggleMessage = function(id) {
+        if(this.data.status == 0){
+
+            this.data.status = 1;
+
+            $http.get("/ajax/updatestatus/"+id).success(function(){
+                console.log('status mise à jour');
+
+            });
+
+        }
+
     }
 
 });

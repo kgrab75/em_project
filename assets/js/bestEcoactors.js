@@ -233,6 +233,7 @@ $( document ).ready(function() {
                         return 0;
                     }
 
+
                     dataSort.sort(sortGES);
                     console.log(dataSort);
 

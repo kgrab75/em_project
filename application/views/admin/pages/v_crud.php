@@ -45,11 +45,11 @@
                         <span class="glyphicon glyphicon-export"></span>
                     </button>
                 </td>
-                <td>
+                <!--td>
                     <button type="button" class="btn btn-primary">
                         <span class="glyphicon glyphicon-eye-open"></span>
                     </button>
-                </td>
+                </td-->
             </tr>
         </tbody>
     </table>
