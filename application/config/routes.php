@@ -42,9 +42,8 @@ $route['default_controller'] = "welcome/view";
 $route['404_override'] = '';
 
 $route['admin'] = "admin";
-$route['ajax'] = "ajax";
 $route['([a-z]+)'] = "welcome/view/$1";
-$route['([a-z]+/[a-z]+/(:num))'] = "welcome/view/$1/$2/$3";
+//$route['([a-z]+/[a-z]+/(:num))'] = "welcome/view/$1/$2/$3";
 $route['(experiences/+[a-z]+)'] = "welcome/view/$1/$2/0";
 $route['(experience/+(:num))'] = "welcome/view/$1/$2";
 $route['(actu/+(:num))'] = "welcome/view/$1/$2";

@@ -90,4 +90,18 @@ class Ajax extends CI_Controller {
 
     }
 
+    function updatestatus($id){
+
+        $dataToUpdate = array('status' => '1');
+
+        $this->db->start_cache();
+
+        $this->db->update('messages', $dataToUpdate, array('id' => $id));
+
+        $this->db->stop_cache();
+        echo 'test';
+
+
+    }
+
 }

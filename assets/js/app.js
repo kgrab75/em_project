@@ -15,14 +15,14 @@ app.controller('crudController', function($scope, $http, $timeout) {
     };
 
     function getTableInfos(table) {
-        $http.get("/ajax/gettableinfos/"+table).success(function(data){
+        $http.get("/em_project/index.php/ajax/gettableinfos/"+table).success(function(data){
             $scope.tableInfos = data;
         });
 
     };
 
     function getData(table) {
-        $http.get("/ajax/getdata/"+table).success(function(data){
+        $http.get("/em_project/index.php/ajax/getdata/"+table).success(function(data){
             $scope.datas = data;
             $scope.master= angular.copy(data);
 
@@ -104,7 +104,7 @@ app.controller('crudController', function($scope, $http, $timeout) {
 
         $http({
             method : 'POST',
-            url : '/ajax/savedata/' + table,
+            url : '/em_project/index.php/ajax/savedata/' + table,
             data: postData,
             headers : {'Content-Type': 'application/x-www-form-urlencoded'}
 
@@ -117,9 +117,23 @@ app.controller('crudController', function($scope, $http, $timeout) {
         });
     }
 
-    $scope.remove=function(item){
+    $scope.remove = function(item) {
         var index=$scope.datas.indexOf(item)
         $scope.datas.splice(index,1);
+    }
+
+    $scope.toggleMessage = function(id) {
+        if(this.data.status == 0){
+
+            this.data.status = 1;
+
+            $http.get("/em_project/index.php/ajax/updatestatus/"+id).success(function(){
+                console.log('status mise à jour');
+
+            });
+
+        }
+
     }
 
 });

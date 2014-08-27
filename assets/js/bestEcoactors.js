@@ -232,7 +232,9 @@ $( document ).ready(function() {
                             return -1;
                         return 0;
                     }
-                    dataSort.sort(sortGES, contentTop);
+                    dataSort.sort( sortGES );
+
+
                     console.log(dataSort);
 
 

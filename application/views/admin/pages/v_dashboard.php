@@ -4,13 +4,13 @@
 
     <ul class="list-unstyled col-sm-12 bg-secondary sideContent info">
         <li>
-            <a href="<?= base_url(); ?>experiences">
-                <i class="fa fa-map-marker "></i> Eco-acteurs <span class="badge">3</span>
+            <a href="<?= base_url(); ?>admin/dashboard/eco_acteur">
+                <i class="fa fa-map-marker "></i> Eco-acteurs <span class="badge"><?php echo $experienceCount; ?></span>
             </a>
         </li>
         <li>
-            <a href="<?= base_url(); ?>ecoactors">
-                <i class="glyphicon glyphicon-inbox "></i> Messages </span><span class="badge">6</span>
+            <a href="<?= base_url(); ?>admin/dashboard/messages">
+                <i class="glyphicon glyphicon-inbox "></i> Messages </span><span class="badge"><?php echo $messageCount; ?></span>
             </a>
         </li>
         <li>

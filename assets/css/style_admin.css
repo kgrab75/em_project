@@ -426,3 +426,34 @@ ul.pagination {
     background-color: #3bbbe2;
 }
 
+
+.panel-group .panel + .panel{
+    margin-top: 0;
+}
+
+.panel-heading{
+    padding: 0;
+}
+
+tr.message td:first-child {
+    width: 5%;
+}
+tr.message td:nth-child(2) {
+    width: 20%;
+}
+tr.message td:nth-child(3) {
+    width: 20%;
+}
+tr.message td:nth-child(4) {
+    width: 20%;
+}
+tr.message td:nth-child(5) {
+    width: 30%;
+}
+tr.message td:nth-child(6) {
+    width: 5%;
+}
+
+
+
+

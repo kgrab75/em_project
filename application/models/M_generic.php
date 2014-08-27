@@ -22,7 +22,13 @@ class M_generic extends CI_Model {
         return $count;
     }
 
+    public function messageCount() {
 
+        $queryTotal = $this->db->query("SELECT * FROM messages WHERE status = 0  ORDER BY id DESC ");
+
+        $count = $queryTotal->num_rows();
+        return $count;
+    }
 
     public function lastActu (){
         $query = $this->db->query("SELECT * FROM actus WHERE status = 1  ORDER BY date DESC LIMIT 1 ");

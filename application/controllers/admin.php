@@ -76,8 +76,16 @@ class Admin extends CI_Controller {
                 $data['table'] = 'comments';
                 $this->load->view('admin/pages/v_crud', $data);
             }
+            else if( $page == 'messages' )
+            {
+                $data['table'] = 'messages';
+                $this->load->view('admin/pages/v_message', $data);
+            }
             else
             {
+                $this->load->model('M_generic');
+                $data['experienceCount'] = $this->M_generic->experienceCount();
+                $data['messageCount'] = $this->M_generic->messageCount();
                 $this->load->view('admin/pages/v_'.$page, $data);
             }
 
