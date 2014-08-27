@@ -1,4 +1,16 @@
+<script type="text/javascript">
+<?php
+
+    // RECUPERATION DU JSON EN JAVACRIPT;
+    echo 'var jsonData = ' . $jsonData . ';';
+    echo "var url = '" . base_url() . "';";
+
+    ?>
+</script>
+
 <script src="<?= base_url(); ?>assets/js/bestEcoactors.js"></script>
+
+
 
 <section class="col-sm-8">
 

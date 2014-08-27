@@ -1,6 +1,6 @@
 $( document ).ready(function() {
-
-    var dataLast = JSON.parse(jsonData);
+    console.log(jsonData);
+    var dataLast = jsonData;
     console.log(dataLast);
 
 

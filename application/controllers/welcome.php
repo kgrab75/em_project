@@ -212,7 +212,7 @@ class Welcome extends CI_Controller {
 
 
 
-        //$this->M_experience->insertComment($nom, $prenom, $email, $message, $idXp, $ip, $spam , $status);
+        $this->M_experience->insertComment($nom, $prenom, $email, $message, $idXp, $ip, $spam , $status);
                 $url = base_url();
                 $redirect = $url . "experience/". $idXp ."?p=".$getUrl;
                 redirect($redirect, 'refresh');
@@ -223,6 +223,8 @@ class Welcome extends CI_Controller {
 
 
             $xpJson = json_encode($data['dataXp']);
+
+
 
 
             // RECUPERATION DU JSON EN JAVACRIPT
@@ -301,14 +303,16 @@ class Welcome extends CI_Controller {
 
 
             $jsonData = json_encode($data["ecoactors"]);
+            //print_r($jsonData);
 
-
+            $data['jsonData'] = $jsonData;
+            /*
             // RECUPERATION DU JSON EN JAVACRIPT
             echo '<script type="text/javascript">';
-            echo "var jsonData = '" . $jsonData . "';";
+            echo 'var jsonData = {"cle":' . $jsonData . '};';
             echo "var url = '" . base_url() . "';";
             echo '</script>';
-
+*/
         }
 
         if($page == "actus") {
