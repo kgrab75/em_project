@@ -1,4 +1,6 @@
-<aside class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+
+
+<aside class="col-sm-9 col-sm-offset-3">
 
     <h2 class="bg-primary panel-heading no-margin-bottom">Informations</h2>
 
@@ -14,10 +16,17 @@
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class="fa fa-trophy"></i> Meilleur Eco-acteur : nom@mail.com
+            <a href="<?= base_url(); ?>admin/dashboard/ecoactors">
+                <i class="fa fa-trophy"></i> Meilleur Eco-acteur : <span id="bestEco">  </span>
             </a>
         </li>
     </ul>
 
 </aside>
+
+<script>
+    <?php echo('var jsonData = ' . $jsonData . ';'); ?>
+
+    document.getElementById('bestEco').innerHTML = jsonData[0].email;
+
+</script>

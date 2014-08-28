@@ -1,4 +1,4 @@
-<aside class="col-sm-3 col-md-2 sidebar">
+<aside class="col-sm-3 sidebar">
 
     <ul class="nav nav-sidebar">
         <li <?php if($page == 'dashboard') echo('class="active"'); ?> ><a href="<?= base_url(); ?>admin/dashboard"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
@@ -8,7 +8,7 @@
     </ul>
 
     <ul class="nav nav-sidebar">
-        <li><a href=""><i class="fa fa-trophy"></i> Meilleur Eco-acteur</a></li>
+        <li><a href="<?= base_url(); ?>admin/dashboard/ecoactors"><i class="fa fa-trophy"></i> Meilleur Eco-acteur</a></li>
     </ul>
 
 </aside>

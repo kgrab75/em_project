@@ -44,7 +44,7 @@ class Ajax extends CI_Controller {
 
         # JSON-encode the response
         header('Content-Type: application/json');
-        echo $json_response = json_encode($arr);
+        echo $json_response = json_encode($arr, JSON_NUMERIC_CHECK);
     }
 
     function savedata($sTable){

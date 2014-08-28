@@ -10,8 +10,8 @@ $( document ).ready(function() {
 
     };
 
-    var imgD = '../assets/images/markerD.png';
-    var imgA = '../assets/images/markerA.png';
+    var imgD = 'assets/images/markerD.png';
+    var imgA = 'assets/images/markerA.png';
     var infowindow = new google.maps.InfoWindow(), i;
 
     var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);

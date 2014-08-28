@@ -81,8 +81,26 @@ class Admin extends CI_Controller {
                 $data['table'] = 'messages';
                 $this->load->view('admin/pages/v_message', $data);
             }
+            else if( $page == 'ecoactors' )
+            {
+                $this->load->model('M_'.$page);
+
+                $data["ecoactors"]= $this->M_ecoactors->ecoactors();
+
+                $jsonData = json_encode($data["ecoactors"]);
+
+                $data['jsonData'] = $jsonData;
+            }
             else
             {
+                $this->load->model('M_ecoactors');
+
+                $data["ecoactors"]= $this->M_ecoactors->ecoactors();
+
+                $jsonData = json_encode($data["ecoactors"]);
+
+                $data['jsonData'] = $jsonData;
+
                 $this->load->model('M_generic');
                 $data['experienceCount'] = $this->M_generic->experienceCount();
                 $data['messageCount'] = $this->M_generic->messageCount();

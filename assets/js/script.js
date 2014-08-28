@@ -7,10 +7,10 @@ $( document ).ready(function() {
 
         if(filterVal == "" ){
             filterVal = "all";
-            $(location).attr('href',"/experiences/"+filterVal+"/0");
+            $(location).attr('href',"/em_project/experiences/"+filterVal+"/0");
             console.log(filterVal);
         } else {
-            $(location).attr('href',"/experiences/"+filterVal+"/0");
+            $(location).attr('href',"/em_project/experiences/"+filterVal+"/0");
         }
         console.log(filterVal);
     });

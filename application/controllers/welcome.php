@@ -62,11 +62,7 @@ class Welcome extends CI_Controller {
             $last10Json = json_encode($data['last10']);
             //var_dump($last10Json);
 
-            // RECUPERATION DU JSON EN JAVACRIPT
-            echo '<script type="text/javascript">';
-            echo "var myJson = '" . $last10Json . "';";
-            echo '</script>';
-
+            $data['jsonData'] = $last10Json;
 
 
         }
@@ -135,10 +131,6 @@ class Welcome extends CI_Controller {
 
 
             }
-
-
-
-
         }
 
 
@@ -149,12 +141,8 @@ class Welcome extends CI_Controller {
 
             $jsonData = json_encode($this->data["results"]);
 
+            $data['jsonData'] = $jsonData;
 
-            // RECUPERATION DU JSON EN JAVACRIPT
-            echo '<script type="text/javascript">';
-            echo "var xpJson = '" . $jsonData . "';";
-            echo "var url = '" . base_url() . "';";
-            echo '</script>';
         }
 
 
@@ -306,13 +294,6 @@ class Welcome extends CI_Controller {
             //print_r($jsonData);
 
             $data['jsonData'] = $jsonData;
-            /*
-            // RECUPERATION DU JSON EN JAVACRIPT
-            echo '<script type="text/javascript">';
-            echo 'var jsonData = {"cle":' . $jsonData . '};';
-            echo "var url = '" . base_url() . "';";
-            echo '</script>';
-*/
         }
 
         if($page == "actus") {

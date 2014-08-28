@@ -98,7 +98,6 @@ button.btn-block {
 .navbar  a:hover,
 .navbar  a:active,
 .navbar  a:focus {
-    background-color: transparent;
     color: #35a0c4;
 }
 
@@ -309,6 +308,7 @@ ul.pagination {
 
 .navbar-admin{
     border-radius: 0;
+    z-index: 100;
 }
 
 /* *** SIDEBAR ADMIN *** */
@@ -362,6 +362,15 @@ ul.pagination {
     width: 15px;
 }
 
+
+.container-fluid .sidebar {
+    height: 100%;
+    margin-top: auto;
+    padding-top: 60px;
+    z-index: 0;
+}
+
+
 /* *** BREADCRUMBS *** */
 
 .breadcrumb-admin {
@@ -400,6 +409,10 @@ ul.pagination {
 
 .crud button.save {
     border-radius: 0 0 6px 6px;
+}
+
+.crud th a{
+    cursor: pointer;
 }
 
 .btn-orange {
@@ -454,6 +467,17 @@ tr.message td:nth-child(6) {
     width: 5%;
 }
 
+.no-padding_left{
+    padding-left: 0;
+}
 
+.col-sm-offset-1 ul.pagination {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+i.fa {
+    white-space: pre;
+}
 
 

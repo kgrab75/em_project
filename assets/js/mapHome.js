@@ -15,8 +15,8 @@ $( document ).ready(function() {
     var contentLoop="{";
 
     //MARKERS
-    var imgD = '../assets/images/markerD.png';
-    var imgA = '../assets/images/markerA.png';
+    var imgD = 'assets/images/markerD.png';
+    var imgA = 'assets/images/markerA.png';
     var infowindow = new google.maps.InfoWindow(), i;
 
 
