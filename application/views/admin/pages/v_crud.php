@@ -1,20 +1,44 @@
-<aside class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 crud" ng-init="init('<?php echo $table; ?>')">
+<aside class="col-sm-9 col-sm-offset-3 crud" ng-init="init('<?php echo $table; ?>')">
 
-    <button type="button" class="btn btn-success btn-lg add" ng-click="dataAdd()">
-        <span class="glyphicon glyphicon-plus"></span> Ajouter un Eco-acteur
-    </button>
+    <div class="form-inline col-sm-12" role="form">
+        <div class="form-group has-feedback">
+            <input type="text" ng-model="query" ng-change="search()" ng-model-options="{ debounce: 1000 }" class="form-control" placeholder="Search">
+            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+    </div>
 
-    <table class="table table-bordered">
+    <div class="col-sm-4 no-padding_left">
+        <button type="button" class="btn btn-success btn-lg add pull-left" ng-click="dataAdd()">
+            <span class="glyphicon glyphicon-plus"></span> Ajouter un Eco-acteur
+        </button>
+    </div>
+    <div class="col-sm-offset-1">
+        <ul class="pagination">
+            <li ng-class="{disabled: currentPage == 0}">
+                <a href ng-click="prevPage()">« Prev</a>
+            </li>
+            <li ng-repeat="n in range(pagedItems.length)"
+                ng-class="{active: n == currentPage}"
+                ng-click="setPage()">
+                <a href ng-bind="n + 1">1</a>
+            </li>
+            <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                <a href ng-click="nextPage()">Next »</a>
+            </li>
+        </ul>
+    </div>
+
+    <table class="table table-bordered ">
         <thead>
             <tr>
-                <th ng-repeat="table in tableInfos">
-                    {{table.Field}}
+                <th ng-repeat="table in tableInfos" class="{{table.Field}}">
+                    <a ng-click="sort_by(table.Field)"><i class="fa fa-sort"> {{table.Field}}&nbsp;</i></a>
                 </th>
             </tr>
         </thead>
         <tbody>
 
-            <tr ng-repeat="(keyData, data) in datas" ng-class="{'bg-danger': data.dataDelete == 1, 'bg-add': data.dataAdd == 1}">
+            <tr ng-repeat="(keyData, data) in pagedItems[currentPage] | orderBy:sortingOrder:reverse" ng-class="{'bg-danger': data.dataDelete == 1, 'bg-add': data.dataAdd == 1}">
                 <td>
                     <div>
                         <span>{{data.id}}</span>
@@ -52,10 +76,30 @@
                 </td-->
             </tr>
         </tbody>
+
     </table>
 
-    <button type="button" class="btn btn-orange btn-lg save pull-right" ng-click="dataSave('<?php echo $table; ?>')">
-        <span class="glyphicon glyphicon-save"></span> Sauvegarder
-    </button>
+
+    <div class="col-sm-4  no-padding_left">
+        <button type="button" class="btn btn-orange btn-lg save pull-left" ng-click="dataSave('<?php echo $table; ?>')">
+            <span class="glyphicon glyphicon-save"></span> Sauvegarder
+        </button>
+    </div>
+
+    <div class="col-sm-offset-1">
+        <ul class="pagination">
+            <li ng-class="{disabled: currentPage == 0}">
+                <a href ng-click="prevPage()">« Prev</a>
+            </li>
+            <li ng-repeat="n in range(pagedItems.length)"
+                ng-class="{active: n == currentPage}"
+                ng-click="setPage()">
+                <a href ng-bind="n + 1">1</a>
+            </li>
+            <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                <a href ng-click="nextPage()">Next »</a>
+            </li>
+        </ul>
+    </div>
 
 </aside>

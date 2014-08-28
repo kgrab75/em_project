@@ -1,3 +1,9 @@
+
+<script type="text/javascript">
+    var xpJson = '<?php echo($jsonData); ?>';
+    var url = '<?php echo(base_url()); ?>';
+</script>
+
 <script src="<?= base_url(); ?>assets/js/listeXp.js"></script>
 
 <section class="col-sm-8 listeXp">

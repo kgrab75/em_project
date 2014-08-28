@@ -1,4 +1,4 @@
-<aside class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 crud" ng-init="init('<?php echo $table; ?>')">
+<aside class="col-sm-9 col-sm-offset-3 crud" ng-init="init('<?php echo $table; ?>')">
 
     <table class="table table-bordered">
         <thead>

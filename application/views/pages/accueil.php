@@ -1,4 +1,8 @@
-     <div class="col-sm-8 content">
+<script type="text/javascript">
+    var myJson = '<?php echo($jsonData); ?>';
+</script>
+
+    <div class="col-sm-8 content">
 
         <div class="col-sm-12">
             <h2 class="bg-primary panel-heading no-margin-bottom">Dernière expérience</h2>
