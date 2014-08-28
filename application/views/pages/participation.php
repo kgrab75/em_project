@@ -117,7 +117,7 @@
         <div class="" id="donnees">
         -->
 
-        <div class=" alert alert-info col-sm-offset-2 col-sm-10" >Pour vos points de départ et d'arrivée, vous pouvez indiquer une coordonnées GPS ou une adresse complète</div>
+
 
         <div class="" id="mapError">
 

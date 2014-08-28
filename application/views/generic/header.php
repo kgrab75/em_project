@@ -14,7 +14,8 @@
 
     <script src="<?= base_url(); ?>assets/js/jquery-2.1.1.min.js"></script>
     <script src="<?= base_url(); ?>assets/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
+
 
     <script src="<?= base_url(); ?>assets/js/script.js"></script>
 

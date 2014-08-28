@@ -1,5 +1,15 @@
 $( document ).ready(function() {
 
+    // AUTOCOMPLETE
+    var options = {
+        componentRestrictions: {country: 'fr'}
+    };
+    var input = document.getElementById('depart');
+    autocomplete = new google.maps.places.Autocomplete(input, options);
+    var input2 = document.getElementById('arrivee');
+    autocomplete = new google.maps.places.Autocomplete(input2, options);
+
+
     var departValue, arriveeValue, transportType;
 
    $("#submitValue").on("click", function(){
