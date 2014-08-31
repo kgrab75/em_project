@@ -91,6 +91,11 @@ class Admin extends CI_Controller {
 
                 $data['jsonData'] = $jsonData;
             }
+            else if( $page == 'actu' )
+            {
+                $data['table'] = 'actus';
+                $this->load->view('admin/pages/v_crud', $data);
+            }
             else
             {
                 $this->load->model('M_ecoactors');
