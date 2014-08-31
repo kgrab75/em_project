@@ -109,17 +109,31 @@ class Ajax extends CI_Controller {
     {
         $oJson = json_decode($_POST['mySearch']);
 
-        $aWhere = array(
-            'distance >=' => $oJson->distance->min * 1000,
-            'distance <=' => $oJson->distance->max * 1000,
-            'duree >=' => $oJson->duree->min * 60,
-            'duree <=' => $oJson->duree->max * 60,
-            'transport' => $oJson->transportT,
-            'difficulty' => $oJson->difficulteT,
-            'type' => $oJson->type,
-            'sous_type' => $oJson->parcoursTypeT,
-            'payant' => $oJson->payant
-        );
+        if($oJson->type == 'touristique'){
+            $aWhere = array(
+                'distance >=' => $oJson->distance->min * 1000,
+                'distance <=' => $oJson->distance->max * 1000,
+                'duree >=' => $oJson->duree->min * 60,
+                'duree <=' => $oJson->duree->max * 60,
+                'transport' => $oJson->transportT,
+                'difficulty' => $oJson->difficulteT,
+                'type' => $oJson->type,
+                'sous_type' => $oJson->parcoursTypeT,
+                'payant' => $oJson->payant
+            );
+        }
+
+        if($oJson->type == 'sportif'){
+            $aWhere = array(
+                'distance >=' => $oJson->distance->min * 1000,
+                'distance <=' => $oJson->distance->max * 1000,
+                'duree >=' => $oJson->duree->min * 60,
+                'duree <=' => $oJson->duree->max * 60,
+                'transport' => $oJson->transportT,
+                'difficulty' => $oJson->difficulteT,
+                'type' => $oJson->type
+            );
+        }
 
         $query = $this->db->get_where('parcours', $aWhere );
         //print_r($this->db->last_query());
