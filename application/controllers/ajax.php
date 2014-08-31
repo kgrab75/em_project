@@ -5,6 +5,7 @@ class Ajax extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        header("Access-Control-Allow-Origin: *");
         $this->load->database();
     }
 
@@ -131,15 +132,56 @@ class Ajax extends CI_Controller {
     {
         $oJson = json_decode($_POST['myForm']);
 
-        print_r($oJson);
-
-        $data = array(
-            'email' => $oJson->email ,
-            'travail' => $oJson->latlong ,
-            'password' => md5($oJson->password)
+        $aWhere = array(
+            'email' => $oJson->email
         );
 
-        $this->db->insert('user_mobile', $data);
+        $query = $this->db->get_where('user_mobile', $aWhere );
+
+        header('Content-Type: application/json');
+
+        if( $query->num_rows() == 0){
+            $data = array(
+                'email' => $oJson->email ,
+                'travail' => $oJson->latlong ,
+                'password' => md5($oJson->password)
+            );
+
+            $this->db->insert('user_mobile', $data);
+
+            echo $json_response = json_encode(array('error' => 'inscrit'), JSON_NUMERIC_CHECK);
+
+        }
+        else{
+            echo $json_response = json_encode(array('error' => 'email_duplication'), JSON_NUMERIC_CHECK);
+        }
+
+    }
+
+    public function connection_mobile()
+    {
+        $oJson = json_decode($_POST['myForm']);
+
+        $aWhere = array(
+            'email' => $oJson->email,
+            'password' => md5($oJson->password)
+
+        );
+
+        $query = $this->db->get_where('user_mobile', $aWhere );
+
+        header('Content-Type: application/json');
+
+        if( $query->num_rows() == 1){
+
+            echo $json_response = json_encode($query->row(), JSON_NUMERIC_CHECK);
+
+        }
+        else{
+            echo $json_response = json_encode(array('error' => 'no_user'), JSON_NUMERIC_CHECK);
+        }
+
+
 
     }
 
