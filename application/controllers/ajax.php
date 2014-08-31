@@ -127,4 +127,20 @@ class Ajax extends CI_Controller {
 
     }
 
+    public function inscription()
+    {
+        $oJson = json_decode($_POST['myForm']);
+
+        print_r($oJson);
+
+        $data = array(
+            'email' => $oJson->email ,
+            'travail' => $oJson->latlong ,
+            'password' => md5($oJson->password)
+        );
+
+        $this->db->insert('user_mobile', $data);
+
+    }
+
 }
