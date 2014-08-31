@@ -35,6 +35,9 @@
         <table class="table table-bordered ">
             <thead>
                 <tr>
+                    <th>
+                        
+                    </th>
                     <th ng-repeat="table in tableInfos" class="{{table.Field}}">
                         <a ng-click="sort_by(table.Field)"><i class="fa fa-sort"> {{table.Field}}&nbsp;</i></a>
                     </th>
