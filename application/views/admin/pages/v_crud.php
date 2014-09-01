@@ -46,6 +46,16 @@
             <tbody>
 
             <tr ng-repeat="(keyData, data) in datas | filter:{ id: '#' }" ng-class="{'bg-danger': data.dataDelete == 1, 'bg-add': data.dataAdd == 1}">
+
+
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click="dataDelete(value.Field, data[value.Field], keyData)" ng-show="!data.dataDelete">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    <button type="button" class="btn btn-success" ng-click="dataUndelete(value.Field, data[value.Field], keyData)" ng-show="data.dataDelete">
+                        <span class="glyphicon glyphicon-export"></span>
+                    </button>
+                </td>
                 <td>
                     <div>
                         <span>{{data.id}}</span>
@@ -66,15 +76,6 @@
                     <input type="text" ng-show="clicked" ng-blur="dataUpdated(value.Field, data[value.Field], keyData)" value="{{data[value.Field]}}" size="{{data[value.Field].length > 15 ? 15 : data[value.Field].length}}" ng-model="data[value.Field]" />
 
 
-                </td>
-
-                <td>
-                    <button type="button" class="btn btn-danger" ng-click="dataDelete(value.Field, data[value.Field], keyData)" ng-show="!data.dataDelete">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                    <button type="button" class="btn btn-success" ng-click="dataUndelete(value.Field, data[value.Field], keyData)" ng-show="data.dataDelete">
-                        <span class="glyphicon glyphicon-export"></span>
-                    </button>
                 </td>
                 <!--td>
                     <button type="button" class="btn btn-primary">

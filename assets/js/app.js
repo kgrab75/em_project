@@ -54,9 +54,6 @@ app.controller('crudController', function($scope, $http, $timeout, $filter) {
         if(this.data.dataAdd != 1){
             valueOrigin = $scope.master[key-nbNewData][field];
 
-            console.log('valueOrigin = ' + valueOrigin);
-            console.log('name = ' + name);
-
             if(!this.data.dataUpdated){
                 this.data.dataUpdated = {};
             }
@@ -68,8 +65,6 @@ app.controller('crudController', function($scope, $http, $timeout, $filter) {
             }
         }
 
-        console.log($scope.datas[key]);
-
         this.clicked = false;
     }
 
@@ -80,12 +75,10 @@ app.controller('crudController', function($scope, $http, $timeout, $filter) {
             $scope.remove(this.data);
             nbNewData--;
         }
-        console.log($scope.datas[key]);
     }
 
     $scope.dataUndelete = function(field, name, key) {
         this.data.dataDelete = 0;
-        console.log($scope.datas[key]);
     }
 
     nbNewData = 0;
@@ -105,7 +98,6 @@ app.controller('crudController', function($scope, $http, $timeout, $filter) {
         x['dataDelete'] = 0;
 
         $scope.datas.unshift(x);
-        console.log($scope.datas);
     }
 
     $scope.dataSave = function(table) {
@@ -137,7 +129,7 @@ app.controller('crudController', function($scope, $http, $timeout, $filter) {
 
             this.data.status = 1;
 
-            $http.get("/ajax/updatestatus/"+id).success(function(){
+            $http.get("../../ajax/updatestatus/"+id).success(function(){
                 console.log('status mise à jour');
 
             });
@@ -150,10 +142,7 @@ app.controller('crudController', function($scope, $http, $timeout, $filter) {
         if (!needle) {
             return true;
         }
-        console.log('haystack : ' + haystack);
-        console.log('needle : ' + needle);
         if(!isNaN(haystack)){
-            console.log('is numeric');
             haystack = haystack.toString();
         }
         return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;

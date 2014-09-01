@@ -87,8 +87,6 @@ $( document ).ready(function() {
                    $('#submitXp').removeClass("disabled");
                    scrollMap($("input[name=okForm]"));
 
-                   console.log(response);
-
 
                } else {
                    // Si l'itinéraire ne peut pas être chargé
@@ -219,8 +217,6 @@ $( document ).ready(function() {
         var count = $('#participation-form input, #participation-form textarea').filter(function(){
             return !$(this).val();
         }).length;
-
-        console.log(count);
 
 
         if(count < 6 ){

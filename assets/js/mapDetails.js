@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
     var jsonData = JSON.parse(xpJson);
-    console.log(jsonData.transport);
+
     var transportType = jsonData.transport;
 
     var rendererOptions = {
@@ -102,7 +102,7 @@ $( document ).ready(function() {
             if(jsonData.transport !== "DRIVING") {
                 document.getElementById('carDuree').innerHTML = " Trajet voiture : " + dureeHM;
             }
-            console.log(response.routes[0].legs[0]);
+
         });
 
 
@@ -144,7 +144,7 @@ $( document ).ready(function() {
                 document.getElementById('duration').innerHTML = dureeHM;
                 document.getElementById('totalKm').innerHTML = myroute.legs[0].distance.text;
 
-                console.log(response.routes[0].legs[0]);
+
             }
         });
 

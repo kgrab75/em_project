@@ -8,11 +8,11 @@ $( document ).ready(function() {
         if(filterVal == "" ){
             filterVal = "all";
             $(location).attr('href',"/em_project/experiences/"+filterVal+"/0");
-            console.log(filterVal);
+
         } else {
             $(location).attr('href',"/em_project/experiences/"+filterVal+"/0");
         }
-        console.log(filterVal);
+
     });
 
   // FONCTION UCFIRST JS

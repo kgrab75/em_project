@@ -1,8 +1,6 @@
 $( document ).ready(function() {
-    console.log(jsonData);
-    var dataLast = jsonData;
-    console.log(dataLast);
 
+    var dataLast = jsonData;
 
 // *********** FONCTIONS GOOGLE MAPS ***********
 
@@ -235,7 +233,7 @@ $( document ).ready(function() {
 
 
                     dataSort.sort(sortGES);
-                    console.log(dataSort);
+
 
                     function contentTop (){
 
@@ -356,8 +354,6 @@ $( document ).ready(function() {
         {name:'Barack Obama', age:48, city:'Chicago'},
         {name:'Ronald McDonald', age:47, city:'San Bernardino'}
     ];
-
-    console.log(arr);
 
 
 

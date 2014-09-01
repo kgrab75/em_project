@@ -1,9 +1,8 @@
 $( document ).ready(function() {
 
-        console.log(xpJson);
 
         var dataLast = JSON.parse(xpJson);
-        console.log(dataLast);
+
 
 
 
@@ -54,7 +53,7 @@ $( document ).ready(function() {
 
         // Let's make an array of requests which will become individual polylines on the map.
         function generateRequests(){
-            console.log("generateRequest");
+
 
             requestArray = [];
             var num = 0;
@@ -122,7 +121,7 @@ $( document ).ready(function() {
         }
 
         function processRequests(){
-            console.log("processRequest");
+
 
             // Counter to track request submission and process one at a time;
             var i = 0;
@@ -136,9 +135,7 @@ $( document ).ready(function() {
             // Used as callback for the above request for current 'i'
             function directionResults(result, status) {
                 if (status == google.maps.DirectionsStatus.OK) {
-                    console.log(result);
 
-                    console.log(i);
 
 
 
@@ -237,14 +234,14 @@ $( document ).ready(function() {
                     $("#xpContent").append(content);
 
                     nextRequest();
-                    console.log("nextRequest2");
+
                 }
 
 
             }
 
             function nextRequest(){
-                console.log("nextRequest");
+
                 // Increase the counter
                 i++;
                 // Make sure we are still waiting for a request
@@ -262,7 +259,7 @@ $( document ).ready(function() {
 
         // Called Onload
         function init() {
-            console.log("init");
+
             // Start the request making
             generateRequests();
 
