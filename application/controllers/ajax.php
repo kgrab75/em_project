@@ -195,8 +195,30 @@ class Ajax extends CI_Controller {
             echo $json_response = json_encode(array('error' => 'no_user'), JSON_NUMERIC_CHECK);
         }
 
+    }
+
+    public function savebilan(){
+        $bilan = json_decode($_POST['myForm']);
+
+        $data = array(
+            'start' => $bilan->start,
+            'arrival' => $bilan->arrival,
+            'ges' => $bilan->ges,
+            'distance' => $bilan->distance,
+            'transport' => $bilan->transport,
+            'difficulty' => $bilan->difficulty,
+            'type' => $bilan->type,
+            'sous_type' => $bilan->sous_type,
+            'payant' => $bilan->payant,
+            'duree' => $bilan->duree,
+        );
+
+        $this->db->insert('parcours', $data);
 
 
+        $this->db->set('ges', 'ges+' . $bilan->ges, FALSE);
+        $this->db->where('email', $bilan->email);
+        $this->db->update('user_mobile');
     }
 
 }
